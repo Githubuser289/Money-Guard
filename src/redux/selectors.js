@@ -1,4 +1,4 @@
-import { createSelector } from '@reduxjs/toolkit';
+// import { createSelector } from '@reduxjs/toolkit';
 
 /** AUTH selectors */
 export const selectIsRegistered = state => state.auth.isRegistered;
