@@ -1,12 +1,15 @@
 // import LoginForm from 'components/LoginForm/LoginForm';
+import LoginForm from 'components/LoginForm/LoginForm';
+import { Container, FormContainer } from 'components/LoginForm/LoginForm.styled';
 import React from 'react';
 
 const LoginPage = () => {
   return (
-    <div>
-      Login Page
-      {/* <LoginForm /> */}
-    </div>
+    <Container >
+    <FormContainer>
+    <LoginForm/>
+    </FormContainer>
+    </Container> 
   );
 };
 

@@ -29,7 +29,7 @@ function App() {
         }
       />
       <Route
-        path="/registration"
+        path="/"
         element={
           <Suspense fallback={<Loader />}>
             <RegistrationPage />{' '}
@@ -37,8 +37,8 @@ function App() {
         }
       />
 
-      <Route
-        path="/"
+      {/* <Route
+        path="/dashboard"
         element={
           <Suspense fallback={<Loader />}>
             <DashboardPage />
@@ -73,7 +73,7 @@ function App() {
             // </PrivateRoute>
           }
         />
-      </Route>
+      </Route> */}
       <Route
         path="*"
         element={
