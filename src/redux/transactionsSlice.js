@@ -5,12 +5,14 @@ import {
   getAllTransactions,
   getCategories,
   getSummary,
+  getExchangeData,
 } from './operations';
 
 const initialState = {
   categories: [],
   transactions: [],
   summary: [],
+  exchangeData: null,
   isLoading: false,
 };
 
@@ -74,6 +76,17 @@ const transactionsSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(getSummary.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(getExchangeData.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(getExchangeData.fulfilled, (state, action) => {
+        state.exchangeData = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(getExchangeData.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
       });
