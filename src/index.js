@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // import Theme from './styles/Theme.js';
 // import { GlobalStyles } from './styles/GlobalStyles.js';
 // import { PersistGate } from 'redux-persist/integration/react';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
 import { Provider as ReduxProvider } from 'react-redux';
 import { store } from './redux/store.js';
 
