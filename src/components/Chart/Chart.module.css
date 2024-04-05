@@ -1,0 +1,36 @@
+.chartContainer {
+  width: 100%;
+}
+.chart {
+  width: 280px;
+  height: 280px;
+  position: relative;
+}
+.expenseSummary {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Poppins-SemiBold', sans-serif;
+  color: var(--white);
+}
+.statisticsTitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #fbfbfb;
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+.expenseTotal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Poppins-SemiBold', sans-serif;
+  color: white;
+}
