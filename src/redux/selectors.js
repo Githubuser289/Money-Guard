@@ -11,6 +11,8 @@ export const selectUser = state => state.auth.user;
 
 export const selectAuthError = state => state.auth.error;
 
+export const selectFlag = state => state.auth.flag;
+
 /** transactions selectors */
 export const selectTransactions = state => state.transactions.transactions;
 

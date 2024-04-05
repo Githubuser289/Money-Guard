@@ -1,117 +1,55 @@
-import { Route, Routes } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
-import PrivateRoute from '../routes/PrivateRoute';
-import MediaRoutes from '../routes/MediaRoutes';
+import { Route, Routes } from 'react-router-dom'; import { Suspense, lazy } from
+'react'; import PrivateRoute from '../routes/PrivateRoute'; import MediaRoutes
+from '../routes/MediaRoutes';
 
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectCategories,
-  selectExchangeData,
-  selectIsLoggedIn,
-  selectSummary,
-  selectTransactions,
-  selectUser,
-} from '../redux/selectors';
-import {
-  addTransaction,
-  getAllTransactions,
-  getCategories,
-  getExchangeData,
-  getInfo,
-  getSummary,
-  logIn,
-  logOut,
-  register,
-} from '../redux/operations';
+import { useDispatch, useSelector } from 'react-redux'; import {
+selectCategories, selectExchangeData, selectIsLoggedIn, selectSummary,
+selectTransactions, selectUser, } from '../redux/selectors'; import {
+addTransaction, getAllTransactions, getCategories, getExchangeData, getInfo,
+getSummary, logIn, logOut, register, } from '../redux/operations';
 
-// lazy loading
-const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
-const RegistrationPage = lazy(() =>
-  import('../pages/RegistrationPage/RegistrationPage')
-);
-const PageNotFound = lazy(() => import('../pages/PageNotFound/PageNotFound'));
-const DashboardPage = lazy(() =>
-  import('../pages/DashboardPage/DashboardPage')
-);
-const CurrencyTab = lazy(() => import('../pages/CurrencyTab/CurrecyTab'));
-const HomeTab = lazy(() => import('../pages/HomePage/HomePage'));
-const StatisticsTab = lazy(() => import('../pages/StatisticTab/StatisticTab'));
+// lazy loading const LoginPage = lazy(() =>
+import('../pages/LoginPage/LoginPage')); const RegistrationPage = lazy(() =>
+import('../pages/RegistrationPage/RegistrationPage') ); const PageNotFound =
+lazy(() => import('../pages/PageNotFound/PageNotFound')); const DashboardPage =
+lazy(() => import('../pages/DashboardPage/DashboardPage') ); const CurrencyTab =
+lazy(() => import('../pages/CurrencyTab/CurrecyTab')); const HomeTab = lazy(()
+=> import('../pages/HomePage/HomePage')); const StatisticsTab = lazy(() =>
+import('../pages/StatisticTab/StatisticTab'));
 
-function App() {
-  const dispatch = useDispatch();
-  const userLoggedIn = useSelector(selectIsLoggedIn);
-  const currentUser = useSelector(selectUser);
-  const categories = useSelector(selectCategories);
-  const transactions = useSelector(selectTransactions);
-  const summary = useSelector(selectSummary);
-  const exchangeRates = useSelector(selectExchangeData);
+function App() { const dispatch = useDispatch(); const userLoggedIn =
+useSelector(selectIsLoggedIn); const currentUser = useSelector(selectUser);
+const categories = useSelector(selectCategories); const transactions =
+useSelector(selectTransactions); const summary = useSelector(selectSummary);
+const exchangeRates = useSelector(selectExchangeData);
 
-  const handleRegister = () => {
-    dispatch(
-      register({
-        username: 'iuser16',
-        email: 'email16@server.com',
-        password: 'wps9916',
-      })
-    );
-  };
-  const handleLogin = () => {
-    console.log('login');
-    dispatch(
-      logIn({
-        email: 'email15@server.com',
-        password: 'wps9915',
-      })
-    );
-  };
-  const handleLogout = () => {
-    console.log('logout');
-    dispatch(logOut());
-  };
+const handleRegister = () => { dispatch( register({ username: 'iuser19', email:
+'email19@server.com', password: 'wps9919', }) ); };
 
-  const handleGetInfo = () => {
-    console.log('getinfo');
-    dispatch(getInfo());
-  };
+const handleLogin = () => { console.log('login'); dispatch( logIn({ email:
+'email15@server.com', password: 'wps9915', }) ); }; const handleLogout = () => {
+console.log('logout'); dispatch(logOut()); };
 
-  const handleAddIncome = () => {
-    console.log('handleAddIncome');
-    const transaction1 = {
-      transactionDate: '2024-03-25',
-      type: 'INCOME',
-      categoryId: '063f1132-ba5d-42b4-951d-44011ca46262',
-      comment: 'another 1000',
-      amount: 1000,
-    };
-    dispatch(addTransaction(transaction1));
-  };
+const handleGetInfo = () => { console.log('getinfo'); dispatch(getInfo()); };
 
-  const handleAddExpense = () => {
-    console.log('handleAddExpense');
-    // Pt a adauga o cheltuiala se foloseste ID-ul corespunzator
-    // numelui cheltuielii din array-ul categories
-  };
+const handleAddIncome = () => { console.log('handleAddIncome'); const
+transaction1 = { transactionDate: '2024-03-25', type: 'INCOME', categoryId:
+'063f1132-ba5d-42b4-951d-44011ca46262', comment: 'another 1000', amount: 1000,
+}; dispatch(addTransaction(transaction1)); };
 
-  const handleUpdate = () => {
-    console.log('handleUpdate');
-    // Pt a modifica o tranzactie se foloseste ID-ul corespunzator
-    // din array-ul transactions
-  };
+const handleAddExpense = () => { console.log('handleAddExpense'); // Pt a adauga
+o cheltuiala se foloseste ID-ul corespunzator // numelui cheltuielii din
+array-ul categories };
 
-  const handleGetAll = () => {
-    console.log('handleGetAll');
-    dispatch(getAllTransactions());
-  };
-  const handleGetCategories = () => {
-    console.log('handleGetCategories');
-    dispatch(getCategories());
-  };
-  const handleGetSummary = () => {
-    console.log('handleGetSummary');
-    dispatch(getSummary());
-  };
-  const handleDisplayRates = () => {
-    console.log('handleDisplayRates');
+const handleUpdate = () => { console.log('handleUpdate'); // Pt a modifica o
+tranzactie se foloseste ID-ul corespunzator // din array-ul transactions };
+
+const handleGetAll = () => { console.log('handleGetAll');
+dispatch(getAllTransactions()); }; const handleGetCategories = () => {
+console.log('handleGetCategories'); dispatch(getCategories()); }; const
+handleGetSummary = () => { console.log('handleGetSummary');
+dispatch(getSummary()); }; const handleDisplayRates = () => {
+console.log('handleDisplayRates');
 
     // Before querying the API for exchange rate,
     // check if an hour has passed,
@@ -124,39 +62,21 @@ function App() {
     }
     const now = new Date();
     if (now - time > 3600000) dispatch(getExchangeData());
-  };
 
-  const handleDisplayValues = () => {
-    console.log('userLoggedIn=', userLoggedIn);
-    console.log('current user ', currentUser);
-    console.log('categories ', categories);
-    console.log('transactions ', transactions);
-    console.log('summary ', summary);
-    console.log('echange data ', exchangeRates);
-  };
-  //*************************** */
-  //*************************** */
-  //*************************** */
-  // de aici in jos e partea care va ramane
+};
 
-  return (
-    <Routes>
-      <Route
-        path="login"
-        element={
-          <Suspense fallback={<Loader />}>
-            <LoginPage />
-          </Suspense>
-        }
-      />
-      <Route
-        path="registration"
-        element={
-          <Suspense fallback={<Loader />}>
-            <RegistrationPage />{' '}
-          </Suspense>
-        }
-      />
+const handleDisplayValues = () => { console.log('userLoggedIn=', userLoggedIn);
+console.log('current user ', currentUser); console.log('categories ',
+categories); console.log('transactions ', transactions); console.log('summary ',
+summary); console.log('echange data ', exchangeRates); };
+//\***\*\*\*\*\*\*\***\*\*\*\***\*\*\*\*\*\*\*** \*/
+//\***\*\*\*\*\*\*\***\*\*\*\***\*\*\*\*\*\*\*** \*/
+//\***\*\*\*\*\*\*\***\*\*\*\***\*\*\*\*\*\*\*** \*/ // de aici in jos e partea
+care va ramane
+
+return ( <Routes> <Route path="login" element={ <Suspense fallback={<Loader />}>
+<LoginPage /> </Suspense> } /> <Route path="registration" element={ <Suspense
+fallback={<Loader />}> <RegistrationPage />{' '} </Suspense> } />
 
       <Route
         path="/"
@@ -254,7 +174,7 @@ function App() {
     //     Display values
     //   </button>
     // </>
-  );
-}
+
+); }
 
 export default App;
