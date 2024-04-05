@@ -1,13 +1,10 @@
 import * as Yup from 'yup';
 import logo from '../../images/logo_money_guard.svg';
 import {
-  ButtonStyled,
   CustomButton,
   EmailIcon,
   ErrorMessageStyled,
-  FormStyled,
   IconContainer,
-  ImgStyled,
   InputContainer,
   InputStyled,
   PasswordIcon,
