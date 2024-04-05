@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_team_project=self.webpackChunkreact_team_project||[]).push([[771],{9771:function(e,r,t){t.r(r);t(2791);var c=t(184);r.default=function(){return(0,c.jsx)(c.Fragment,{children:(0,c.jsx)("div",{children:"Currency Tab"})})}}}]);
-//# sourceMappingURL=771.b777e8ce.chunk.js.map
