@@ -3,6 +3,10 @@ import { Suspense, lazy } from 'react';
 // import PrivateRoute from '../routes/PrivateRoute';
 import MediaRoutes from '../routes/MediaRoutes';
 import Loader from './Loader/Loader';
+import AddTransaction from './AddTransactionForm/AddTransaction';
+import { Container, FormContainer } from './LoginForm/LoginForm.styled';
+
+
 
 // lazy loading
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
@@ -19,70 +23,53 @@ const StatisticsTab = lazy(() => import('../pages/StatisticTab/StatisticTab'));
 
 function App() {
   return (
-    <Routes>
-      <Route
-        path="/login"
-        element={
-          <Suspense fallback={<Loader />}>
-            <LoginPage />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/"
-        element={
-          <Suspense fallback={<Loader />}>
-            <RegistrationPage />{' '}
-          </Suspense>
-        }
-      />
-
-      {/* <Route
-        path="/dashboard"
-        element={
-          <Suspense fallback={<Loader />}>
-            <DashboardPage />
-          </Suspense>
-        }
-      >
+    // <Container >
+    // <FormContainer>
+    // <AddTransaction/>
+    // </FormContainer>
+    // </Container>
+        <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route
+            path="/registration"
+            element={
+              <RestrictedRoute
+                redirectTo="/dashboard"
+                component={<RegistrationPage />}
+              />
+            }
+          />
+  
+          <Route
+            index
+            path="/login"
+            element={
+              <RestrictedRoute
+                redirectTo="/dashboard"
+                component={<LoginPage />}
+              />
+            }
+          />
+        </Route>
         <Route
-          index
+          path="/dashboard"
           element={
-            // <PrivateRoute>
-            <HomeTab />
-            // </PrivateRoute>
+            <PrivateRoute redirectTo="/login" component={<DashboardPage />} />
           }
-        />
-        <Route
-          path="/statistics"
-          element={
-            // <PrivateRoute>
-            <StatisticsTab />
-            // </PrivateRoute>
-          }
-        />
-        <Route
-          path="/currency"
-          element={
-            // <PrivateRoute>
-            <MediaRoutes>
-              <Suspense fallback={<Loader />}>
+        >
+          <Route index element={<HomeTab />} />
+          <Route path="statistics" element={<StatisticsTab />} />
+          <Route
+            path="currency"
+            element={
+              <MediaRoutes>
                 <CurrencyTab />
-              </Suspense>
-            </MediaRoutes>
-            // </PrivateRoute>
-          }
-        />
-      </Route> */}
-      <Route
-        path="*"
-        element={
-          <Suspense fallback={<Loader />}>
-            <PageNotFound />
-          </Suspense>
-        }
-      />
-    </Routes>
+              </MediaRoutes>
+            }
+          />
+        </Route>
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
   );
 }
 

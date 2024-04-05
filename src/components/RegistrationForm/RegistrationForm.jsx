@@ -12,7 +12,7 @@ import {ButtonStyled,
     PasswordIcon, 
     UserIcon} 
     from "./RegistrationForm.styled";
-import logo from '../../images/logo_money_guard.svg';
+import logo from '../../images/logo.png';
 import {ErrorMessage, Formik} from "formik";
 import * as Yup from 'yup'
 import { useDispatch } from "react-redux";

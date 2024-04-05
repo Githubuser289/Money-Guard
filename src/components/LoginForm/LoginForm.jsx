@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 // import {Formik} from 'formik';
-import logo from '../../images/logo_money_guard.svg'
+import logo from '../../images/logo.png'
 import { ButtonStyled, 
      CustomButton, 
      EmailIcon,
