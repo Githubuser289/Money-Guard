@@ -1,0 +1,73 @@
+.StatisticsTableContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.statisticsInfo {
+    width: 280px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 108px;
+    border-radius: 8px;
+    box-shadow: 0 4px 60px 0 rgba(0, 0, 0, 0.25);
+    background: rgba(82, 59, 126, 0.6);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fbfbfb;
+    margin-top: 25px;
+}
+
+.category {
+    margin-left: 25px;
+}
+
+.sum {
+    margin-right: 30px;
+}
+
+.noTransactionsText {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #fbfbfb;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.expenses,
+.income {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #fbfbfb;
+    display: flex;
+
+    align-items: center;
+    padding: 16px 28px 3px;
+    gap: 135px;
+}
+
+.income {
+    gap: 150px;
+}
+
+.expensesSum {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: right;
+    color: #ff868d;
+}
+
+.incomeSum {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: right;
+    color: #ffb627;
+}
