@@ -4,6 +4,8 @@ import PrivateRoute from '../routes/PrivateRoute';
 import MediaRoutes from '../routes/MediaRoutes';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { RestrictedRoute } from 'routes/RestrictedRoute';
+import { AddContainer, AddFormcontainer } from './AddTransactionForm/AddTransactionForm.styled';
+import AddTransactionForm from './AddTransactionForm/AddTransactionForm';
 
 // lazy loading
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
@@ -20,6 +22,7 @@ const StatisticsTab = lazy(() => import('../pages/StatisticTab/StatisticTab'));
 
 function App() {
   return (
+
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route

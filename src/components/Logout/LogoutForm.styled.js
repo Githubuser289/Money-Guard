@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const LogoutMain = styled.div`
@@ -30,37 +31,7 @@ gap: 20px;
 
 `
 
-export const LogoutButton = styled.button`
-width: 250px;
-  height: 50px;
-  margin-top: 20px;
-  border: none;
-  border-radius: 20px;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.5;
-  text-transform: uppercase;
-  text-decoration: none;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  background: var(
-    --button-gradient,
-    linear-gradient(97deg, #ffc727 -16.42%, #9e40ba 97.04%, #7000ff 150.71%)
-  );
-  /* box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2); */
-
-  &:hover {
-    color: #3a2f43;
-    box-shadow: 0px 15px 10px -15px rgba(0, 0, 0, 0.2),
-                 1px 9px 15px 0px rgba(0, 0, 0, 0.2),
-                 2px 17px 12px -17px #111,
-                 0px 4px 60px 0px rgba(0, 0, 0, 0.25);  
-  }
-`
-export const CancelButton = styled.button`
+export const StyledBtn = styled.button`
   width: 250px;
   height: 50px;
   margin-top: 20px;
@@ -75,8 +46,48 @@ export const CancelButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
+  color: white;
+  background: linear-gradient(97deg, 
+                  #ffc727 -16.42%, 
+                  #9e40ba 97.04%, 
+                  #7000ff 150.71%)
+  ;
+  @media screen and (min-width: 768px){
+    width: 300px;
+  }
+  /* box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2); */
+
+  &:hover {
+    color: #3a2f43;
+    box-shadow: 0px 15px 10px -15px rgba(0, 0, 0, 0.2),
+                 1px 9px 15px 0px rgba(0, 0, 0, 0.2),
+                 2px 17px 12px -17px #111,
+                 0px 4px 60px 0px rgba(0, 0, 0, 0.25);  
+  }
+`
+export const CancelButton = styled(Link)`
+  width: 250px;
+  height: 50px; 
+  font-size: 18px; 
+  border: none; 
+  border-radius: 20px; 
+  line-height: 1.5; 
+  text-transform: uppercase; 
+  cursor: pointer; 
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+  background-color: #fbfbfb; 
   color: rgba(98, 63, 139, 1);
+  margin-top: 20px;
+
+  @media screen and (min-width: 768px){
+    width: 300px;
+  }
+
+ /*font-weight: 400;
+ text-decoration: none; */
+ 
 
   &:hover {
     color: #3a2f43;

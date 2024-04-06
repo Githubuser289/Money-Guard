@@ -1,4 +1,4 @@
-import { forwardRef, useEffect } from "react";
+import { forwardRef, useEffect, useRef } from "react";
 import { Formik, Field } from 'formik';
 import { useDispatch, useSelector } from "react-redux";
 import { AddBtn, AddTitle, ErrorMessageStyled, Label, StyledComment, StyledForm, StyledLabel, StyledSum, SwitcherWrapper, Wrapper } from "./AddTransactionForm.styled";
@@ -10,6 +10,9 @@ import { CustomSelect } from "./SelectCategory";
 import DatePicker from 'react-datepicker';
 import { selectCategories } from "../../redux/selectors";
 import 'react-datepicker/dist/react-datepicker.css'
+import { CancelButton, StyledBtn } from "components/Logout/LogoutForm.styled";
+import { useLocation } from 'react-router-dom';
+
 
 const addSchema = object({
     value: number().positive().required('Amount is required'),
@@ -51,6 +54,8 @@ const addSchema = object({
   export default function AddTransactionForm() {
     const dispatch = useDispatch();
     const categories = useSelector(selectCategories);
+    const location = useLocation();
+    const cancel = useRef(location.state?.fom || '/')
 
     useEffect(() => {
 
@@ -131,7 +136,8 @@ const addSchema = object({
                 />
                 <ErrorMessageStyled name="comment" component="div" />
               </StyledLabel>
-              <AddBtn type="submit">Add</AddBtn>
+              <StyledBtn type="submit">Add</StyledBtn>
+              <CancelButton to={cancel.current}>Cancel</CancelButton>
             </StyledForm>
           )}
         </Formik>
