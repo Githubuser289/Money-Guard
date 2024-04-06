@@ -5,7 +5,7 @@ import {
   EmailIcon,
   ErrorMessageStyled,
   IconContainer,
-  ImgStyled,
+  ImgStyledd,
   InputContainer,
   InputStyled,
   LogoContainer,
@@ -69,7 +69,7 @@ const LoginForm = () => {
       >
         <FormLoginStyled>
           <LogoContainer>
-            <ImgStyled src={logo} alt="logo" />
+            <ImgStyledd src={logo} alt="logo" />
             <LogoText>Money Guard</LogoText>
           </LogoContainer>
 
