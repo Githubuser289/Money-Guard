@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_team_project=self.webpackChunkreact_team_project||[]).push([[131],{5131:function(e,n,r){r.r(n);var a=r(2791),c=r(7689),s=r(4420),i=r(6351),t=r(6143),l=r(184);n.default=function(){var e=(0,s.v9)(i.Qb);return(0,l.jsx)(l.Fragment,{children:e?(0,l.jsx)(a.Suspense,{fallback:(0,l.jsx)(t.Z,{}),children:(0,l.jsx)(c.j3,{})}):(0,l.jsxs)("div",{children:[(0,l.jsx)("div",{children:"fundalul cu imaginea"}),(0,l.jsx)("p",{children:"modal Login/Register"})]})})}}}]);
-//# sourceMappingURL=131.c8a48195.chunk.js.map
