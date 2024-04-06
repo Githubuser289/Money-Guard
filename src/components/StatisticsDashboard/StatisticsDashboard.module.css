@@ -1,0 +1,15 @@
+.selectInput {
+    width: 280px;
+    height: 50px;
+    padding-left: 6px;
+    cursor: pointer;
+    appearance: none;
+}
+
+.selectContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 30px;
+    align-items: center;
+}

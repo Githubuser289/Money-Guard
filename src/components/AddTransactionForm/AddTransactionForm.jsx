@@ -1,0 +1,149 @@
+import { forwardRef, useEffect } from 'react';
+import { Formik, Field } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  AddBtn,
+  AddTitle,
+  ErrorMessageStyled,
+  Label,
+  StyledComment,
+  StyledForm,
+  StyledLabel,
+  StyledSum,
+  SwitcherWrapper,
+  Wrapper,
+} from './AddTransactionForm.styled';
+import { object, string, number } from 'yup';
+import { CustomSwitch } from './CustomSwitch';
+import { RiCalendar2Fill } from 'react-icons/ri';
+import { addTransaction, getCategories } from '../../redux/operations';
+import { CustomSelect } from './SelectCategory';
+import DatePicker from 'react-datepicker';
+import { selectCategories } from '../../redux/selectors';
+import 'react-datepicker/dist/react-datepicker.css';
+
+const addSchema = object({
+  value: number().positive().required('Amount is required'),
+  comment: string()
+    .max(30, 'Maximum must be 30 characters')
+    .required('Please fill in comment'),
+  category: string()
+    .min(3)
+    .oneOf([
+      'Main expenses',
+      'Products',
+      'Car',
+      'Self care',
+      'Child care',
+      'Household products',
+      'Education',
+      'Leisure',
+      'Other expenses',
+      'Entertainment',
+    ]),
+});
+const initialValues = {
+  type: 'expense',
+  category: '',
+  value: '',
+  date: new Date(),
+  comment: '',
+};
+
+const CustomInput = forwardRef(({ value, onClick }, ref) => (
+  <>
+    <button type="button" className="custom-input" onClick={onClick} ref={ref}>
+      {value}
+    </button>
+    <RiCalendar2Fill className="date-icon" onClick={onClick} />
+  </>
+));
+
+export default function AddTransactionForm() {
+  const dispatch = useDispatch();
+  const categories = useSelector(selectCategories);
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
+
+  const handleSubmit = (values, { resetForm }) => {
+    dispatch(addTransaction(values));
+    resetForm();
+  };
+
+  // const optionCategories = categories.map(category => {
+  //   return {
+  //     value: category,
+  //     label: category,
+  //   };
+  // });
+
+  return (
+    <>
+      <AddTitle>Add transaction</AddTitle>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={addSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ values, setFieldValue, validate, ...props }) => (
+          <StyledForm autoComplete="off">
+            <SwitcherWrapper>
+              <CustomSwitch
+                checked={values.type === 'expense'}
+                onChange={isChecked => {
+                  setFieldValue('type', isChecked ? 'expense' : 'income');
+                }}
+              />
+            </SwitcherWrapper>
+            {values.type === 'expense' ? (
+              <>
+                <CustomSelect
+                  options={categories}
+                  value={values.category}
+                  onChange={value => setFieldValue('category', value)}
+                  className="Select"
+                  name="category"
+                />
+                <ErrorMessageStyled name="category" component="div" />
+              </>
+            ) : (
+              (values.category = '')
+            )}
+            <Wrapper>
+              <Label>
+                <StyledSum type="number" name="value" placeholder="0.00" />
+                <ErrorMessageStyled name="value" component="div" />
+              </Label>
+              <Label>
+                <Field name="date" validate={validate}>
+                  {({ field, form, meta }) => (
+                    <DatePicker
+                      name="date"
+                      dateFormat="dd.MMM.yyyy"
+                      maxDate={new Date()}
+                      selected={values.date || null}
+                      onChange={date => setFieldValue('date', date)}
+                      shouldCloseOnSelect={true}
+                      customInput={<CustomInput />}
+                    />
+                  )}
+                </Field>
+              </Label>
+            </Wrapper>
+            <StyledLabel>
+              <StyledComment
+                type="textarea"
+                name="comment"
+                placeholder="Comment"
+              />
+              <ErrorMessageStyled name="comment" component="div" />
+            </StyledLabel>
+            <AddBtn type="submit">Add</AddBtn>
+          </StyledForm>
+        )}
+      </Formik>
+    </>
+  );
+}

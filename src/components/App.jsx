@@ -15,8 +15,10 @@ const DashboardPage = lazy(() =>
   import('../pages/DashboardPage/DashboardPage')
 );
 const CurrencyTab = lazy(() => import('../pages/CurrencyTab/CurrencyTab'));
-const HomeTab = lazy(() => import('../pages/HomePage/HomePage'));
-const StatisticsTab = lazy(() => import('../pages/StatisticTab/StatisticTab'));
+const HomeTab = lazy(() => import('../pages/HomeTab/HomeTab'));
+const StatisticsTab = lazy(() =>
+  import('../pages/StatisticsTab/StatisticsTab')
+);
 
 function App() {
   return (

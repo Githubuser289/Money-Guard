@@ -1,5 +1,8 @@
-import Loader from 'components/Loader/Loader';
-import { Suspense, useEffect } from 'react';
+// import Loader from 'components/Loader/Loader';
+import {
+  // Suspense,
+  useEffect,
+} from 'react';
 import { useSelector } from 'react-redux';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { selectIsLoggedIn } from '../../redux/selectors';
@@ -19,9 +22,9 @@ export const SharedLayout = () => {
 
   return (
     <div>
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
+      {/* <Suspense fallback={<Loader />}> */}
+      <Outlet />
+      {/* </Suspense> */}
     </div>
   );
 };
