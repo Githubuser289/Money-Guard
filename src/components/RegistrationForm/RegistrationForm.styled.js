@@ -18,6 +18,11 @@ export const FormRegisterStyled = styled(Form)`
   /* background-image: url(&{img}); */
 `;
 
+export const ImgStyled = styled.img`
+  width: 36px;
+  height: 36px;
+`;
+
 export const InputStyled = styled(Field)`
   width: 100%;
   background-color: transparent;
@@ -60,10 +65,6 @@ export const LogoContainer = styled.div`
   align-items: center;
 `;
 
-export const ImgStyled = styled.img`
-  width: 36px;
-  height: 36px;
-`;
 export const LogoText = styled.h2`
   color: white;
   margin-top: 0;
