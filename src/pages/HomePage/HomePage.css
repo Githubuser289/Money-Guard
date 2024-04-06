@@ -1,3 +1,8 @@
+.bg{
+background-color: blue;
+height: 100vh;
+}
+
 .homebar {
     display: flex;
     justify-content: space-between;

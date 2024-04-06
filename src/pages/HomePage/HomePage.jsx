@@ -6,6 +6,7 @@ import React from 'react';
 // import { StyledHomePageContainer } from './HomePage.styled';
 import './HomePage.css';
 import { useNavigate } from 'react-router-dom';
+import Header from 'components/Header/Header';
 
 const HomeTab = () => {
   // const isTablet = useMediaQuery({
@@ -19,6 +20,10 @@ const HomeTab = () => {
   return (
     <div>
       {/* <StyledHomePageContainer> */}
+      <Header/>
+
+      
+<div className='bg'>
       <div className="homebar">
         <p>sigla MoneyGuard</p>
         <div className="userexit">
@@ -34,6 +39,8 @@ const HomeTab = () => {
         </div>
         <div className="rightdiv">RIGHT DIV</div>
       </div>
+</div>
+
       {/* {isTablet ? <TransactionsList /> : <MobileList />}
       <ButtonAddTransactions />
       </StyledHomePageContainer> */}

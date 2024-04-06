@@ -55,8 +55,22 @@ export const InputStyled = styled(Field)`
   }
  
 `
+export const LogoContainer = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+` 
+
 export const ImgStyled = styled.img `
-margin-bottom: 10px;
+width: 36px;
+height: 36px;
+
+`
+export const LogoText = styled.h2`
+color: white;
+margin-top: 0;
+margin-bottom: 0;
 
 `
 

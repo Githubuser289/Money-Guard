@@ -5,12 +5,11 @@ display:flex;
 justify-content: center;
 align-items: center;
 flex-wrap: wrap;
-background-color:purple;
+/* background-color:purple; */
 min-width: 100vw;
 min-height: 100vh;
 
 `
-
 export const ContainerLogout = styled.div`
 background-color: rgba(0, 0, 0, 0.25);
 display: flex;

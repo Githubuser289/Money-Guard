@@ -62,13 +62,19 @@ const LoginForm = () => {
 
   return (
     <>
+
+    
       <FormikLogin
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
+         
         <FormLoginStyled>
-          <ImgLogoStyled src={logo} />
+         <div>
+          <img src={logo} />
+          <h2>Money Guard</h2>
+          </div>
 
           <InputContainer>
             <IconContainer>

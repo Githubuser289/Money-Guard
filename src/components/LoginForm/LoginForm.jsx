@@ -5,14 +5,16 @@ import {
   EmailIcon,
   ErrorMessageStyled,
   IconContainer,
+  ImgStyled,
   InputContainer,
   InputStyled,
+  LogoContainer,
+  LogoText,
   PasswordIcon,
 } from '../RegistrationForm/RegistrationForm.styled';
 import {
   FormLoginStyled,
   FormikLogin,
-  ImgLogoStyled,
 } from './LoginForm.styled';
 import { ErrorMessage } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
@@ -65,8 +67,10 @@ const LoginForm = () => {
         onSubmit={onSubmit}
       >
         <FormLoginStyled>
-          <ImgLogoStyled src={logo} />
-
+          <LogoContainer>
+          <ImgStyled src={logo} alt='logo' />
+          <LogoText>Money Guard</LogoText>
+          </LogoContainer>
           <InputContainer>
             <IconContainer>
               <EmailIcon />
