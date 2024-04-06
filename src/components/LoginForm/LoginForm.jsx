@@ -5,8 +5,11 @@ import {
   EmailIcon,
   ErrorMessageStyled,
   IconContainer,
+  ImgStyled,
   InputContainer,
   InputStyled,
+  LogoContainer,
+  LogoText,
   PasswordIcon,
 } from '../RegistrationForm/RegistrationForm.styled';
 import {
@@ -64,8 +67,11 @@ const LoginForm = () => {
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        <FormLoginStyled>
-          <ImgLogoStyled src={logo} />
+     <FormLoginStyled>
+          <LogoContainer>
+          <ImgStyled src={logo} alt='logo' />
+          <LogoText>Money Guard</LogoText>
+          </LogoContainer>
 
           <InputContainer>
             <IconContainer>

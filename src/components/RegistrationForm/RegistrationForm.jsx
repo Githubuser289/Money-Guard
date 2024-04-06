@@ -7,6 +7,8 @@ import {
   ImgStyled,
   InputContainer,
   InputStyled,
+  LogoContainer,
+  LogoText,
   PasswordBar,
   PasswordIcon,
   UserIcon,
@@ -84,7 +86,10 @@ const RegistrationForm = () => {
       >
         {({ isSubmiting, values }) => (
           <FormRegisterStyled>
-            <ImgStyled src={logo} />
+          <LogoContainer>
+        <ImgStyled src={logo} alt='logo' />
+        <LogoText>Money Guard</LogoText>
+        </LogoContainer>
 
             <InputContainer>
               <IconContainer>
