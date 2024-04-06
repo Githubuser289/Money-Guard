@@ -5,7 +5,6 @@ import {
   EmailIcon,
   ErrorMessageStyled,
   IconContainer,
-  ImgStyled,
   InputContainer,
   InputStyled,
   LogoContainer,
