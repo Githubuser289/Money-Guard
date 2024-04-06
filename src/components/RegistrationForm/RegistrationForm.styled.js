@@ -18,7 +18,7 @@ export const FormRegisterStyled = styled(Form)`
   /* background-image: url(&{img}); */
 `;
 
-export const ImgStyled = styled.img`
+export const ImgStyledd = styled.img`
   width: 36px;
   height: 36px;
 `;
