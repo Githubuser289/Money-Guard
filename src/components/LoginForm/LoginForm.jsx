@@ -5,7 +5,6 @@ import {
   EmailIcon,
   ErrorMessageStyled,
   IconContainer,
-  ImgStyledd,
   InputContainer,
   InputStyled,
   LogoContainer,
@@ -15,6 +14,7 @@ import {
 import {
   FormLoginStyled,
   FormikLogin,
+  ImgStyled2,
   // ImgLogoStyled,
 } from './LoginForm.styled';
 import { ErrorMessage } from 'formik';
@@ -69,7 +69,7 @@ const LoginForm = () => {
       >
         <FormLoginStyled>
           <LogoContainer>
-            <ImgStyledd src={logo} alt="logo" />
+            <ImgStyled2 src={logo} alt="logo" />
             <LogoText>Money Guard</LogoText>
           </LogoContainer>
 
