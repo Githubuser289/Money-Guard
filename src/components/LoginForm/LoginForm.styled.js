@@ -11,6 +11,10 @@ export const FormLoginStyled = styled(Form)`
   padding: 100px 20px 100px 20px;
   /* background-color: purple; */
 `;
+export const ImgStyled2 = styled.img`
+  width: 36px;
+  height: 36px;
+`;
 export const FormContainer = styled.div`
   min-width: 100vw;
   min-height: 100vh;
