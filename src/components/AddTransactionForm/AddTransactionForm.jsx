@@ -20,18 +20,7 @@ const addSchema = object({
       .required('Please fill in comment'),
     category: string()
       .min(3)
-      .oneOf([
-        'Main expenses',
-        'Products',
-        'Car',
-        'Self care',
-        'Child care',
-        'Household products',
-        'Education',
-        'Leisure',
-        'Other expenses',
-        'Entertainment',
-      ]),
+
   });
   const initialValues = {
     type: 'expense',
@@ -65,7 +54,7 @@ const addSchema = object({
     
       const handleSubmit = (values, { resetForm }) => {
         dispatch(addTransaction(values));
-       
+        console.log(addTransaction(values));
         resetForm();
       };
       // console.log(categories);
@@ -101,8 +90,8 @@ const addSchema = object({
                 <>
                   <CustomSelect
                     options={optionCategories}
-                    value={values.category}
-                    onChange={value => {setFieldValue('category', value)}}
+                    value={optionCategories.find(option => option.value === values.category)}
+                    onChange={value => {setFieldValue('category', value.value)}}
                     className="Select"
                     name="category"
                   />

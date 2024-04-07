@@ -24,7 +24,7 @@ margin-bottom:20px;
 `
 
 export const Text = styled.span`
-
+  
   right: 100px;
   font-weight: 600;
   color: ${({ checked }) =>
