@@ -18,10 +18,10 @@ const HomeTab = () => {
   // };
   return (
     <div>
-      {/* <StyledHomePageContainer> */}
       HomeTab
-      {/* {isTablet ? <TransactionsList /> : <MobileList />}
-      <ButtonAddTransactions />
+      {/* <StyledHomePageContainer>
+        {isTablet ? <TransactionsList /> : <MobileList />}
+        <ButtonAddTransactions />
       </StyledHomePageContainer> */}
     </div>
   );

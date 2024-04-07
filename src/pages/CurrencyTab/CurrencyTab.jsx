@@ -1,15 +1,17 @@
-// import Currency from 'components/Currency/Currency';
+import Currency from '../../components/Currency/Currency';
 import React from 'react';
-// import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from 'react-responsive';
+import { useSelector } from 'react-redux';
+import { selectIsLoading } from '../../redux/selectors';
 
 const CurrencyTab = () => {
-  // const isDesktopOrLaptop = useMediaQuery({
-  //   query: '(min-width: 768px)',
-  // });
+  const isLoading = useSelector(selectIsLoading);
+  const isTabletOrDesktop = useMediaQuery({ query: '(min-width: 768px)' });
+
   return (
     <>
-      <div>Currency Tab</div>
-      {/* {!isDesktopOrLaptop && <Currency />} */}
+      {isLoading && isTabletOrDesktop && <div>Loading...</div>}
+      {!isLoading && isTabletOrDesktop && <Currency />}
     </>
   );
 };

@@ -4,7 +4,7 @@ import Select from 'react-select';
 import { ErrorMessage } from 'formik';
 
 export const AddTitle = styled.h2`
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   text-align: center;
   font-weight: 400;
   font-size: 24px;
@@ -12,7 +12,7 @@ export const AddTitle = styled.h2`
   color: #fbfbfb;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 41px;
+    margin-bottom: 40px;
     font-size: 30px;
   }
 `;

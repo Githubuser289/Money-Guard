@@ -13,7 +13,7 @@ const initialState = {
   transactions: [],
   summary: [],
   exchangeData: null,
-  isLoading: false,
+  isLoading: true,
 };
 
 const transactionsSlice = createSlice({

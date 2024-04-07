@@ -1,20 +1,35 @@
 import styled from 'styled-components';
 
 export const SwitchContainer = styled.div`
-  position: relative;
-  width: 80px;
-  height: 40px;
-  background-color: #fbfbfb;
-  border-radius: 30px;
-  cursor: pointer;
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: relative;
+    width: 80px;
+    height: 40px;
+    background-color: #fbfbfb;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+`;
+export const SlashContainer = styled.div`
+  display: flex;
+  gap: 5px;
+  margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Text = styled.span`
-  position: absolute;
   right: 100px;
   font-weight: 600;
   color: ${({ checked }) =>
-    checked ? 'rgba(255, 255, 255, 0.60)' : '#FF868D'};
+    checked ? 'rgba(255, 255, 255, 0.60)' : '#FFB627'};
+  @media screen and (min-width: 768px) {
+    position: absolute;
+  }
 `;
 
 export const TextExpense = styled(Text)`
@@ -30,7 +45,7 @@ export const Slider = styled.div`
     `translateY(-50%) translateX(${checked ? '40px' : '0'})`};
   width: 44px;
   height: 44px;
-  background-color: #ff868d;
+  background-color: ${({ checked }) => (checked ? '#FF868D' : '#FFB627')};
   box-shadow: ${({ checked }) =>
     checked
       ? '0px 6px 15px 0px rgba(255, 134, 141, 0.50)'
