@@ -4,7 +4,6 @@ import StatisticsDashboard from '../../components/StatisticsDashboard/Statistics
 import StatisticsTable from '../../components/StatisticsTable/StatisticsTable';
 
 const StatisticsTab = () => {
-  console.log('statisticsTab ');
   return (
     <div className={styles.statisticsPageContainer}>
       <Chart />

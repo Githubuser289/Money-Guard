@@ -1,11 +1,7 @@
 import React, { useEffect } from 'react';
 import Header from '../../components/Header/Header';
 import Navigation from '../../components/Navigation/Navigation';
-import {
-  Outlet,
-  //  useLocation
-} from 'react-router-dom';
-// import Balance from '../../components/Balance/Balance';
+import { useLocation } from 'react-router-dom';
 import Container from '../../components/Container/Container';
 import {
   DashboardContainer,
@@ -18,22 +14,33 @@ import {
   SectionContainer,
 } from './DashboardPage.styled';
 import { useMediaQuery } from 'react-responsive';
-// import CurrencyPage from '../CurrencyPage';
 import { useDispatch } from 'react-redux';
-import { getAllTransactions, getCategories } from '../../redux/operations';
+import {
+  getAllTransactions,
+  getCategories,
+  getExchangeData,
+  getSummary,
+} from '../../redux/operations';
+import HomeTab from '../HomeTab/HomeTab';
+import StatisticsTab from '../StatisticsTab/StatisticsTab';
+import Balance from '../../components/Balance/Balance';
+import CurrencyTab from '../../pages/CurrencyTab/CurrencyTab';
 
 function DashboardPage() {
   const dispatch = useDispatch();
 
   const isTabletOrDesktop = useMediaQuery({ query: '(min-width: 768px)' });
-  // const location = useLocation();
-  // const currentPage = location.pathname
-  //   .replace('dashboard', '')
-  //   .replaceAll('/', '');
+  const location = useLocation();
+  const path = location.pathname;
+  const currentPage = location.pathname
+    .replace('dashboard', '')
+    .replaceAll('/', '');
 
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getAllTransactions());
+    dispatch(getExchangeData());
+    dispatch(getSummary());
   }, [dispatch]);
 
   return (
@@ -52,15 +59,16 @@ function DashboardPage() {
           <LeftContainer>
             <NavAndBalanceWrapper>
               <Navigation />
-              {/* {!isTabletOrDesktop &&
-                (currentPage === 'home' || currentPage === '') && <Balance />} */}
-              {/* {isTabletOrDesktop && <Balance />} */}
+              {!isTabletOrDesktop &&
+                (currentPage === 'home' || currentPage === '') && <Balance />}
+              {isTabletOrDesktop && <Balance />}
             </NavAndBalanceWrapper>
-            {/* {isTabletOrDesktop && <CurrencyPage />} */}
+            {isTabletOrDesktop && <CurrencyTab />}
           </LeftContainer>
-          {/*       <Suspense fallback={<Loader/>}>*/}
+          {/* <Suspense fallback={<Loader/>}>
           <Outlet />
-          {/*   </Suspense>*/}
+            </Suspense> */}
+          {path === '/dashboard' ? <HomeTab /> : <StatisticsTab />}
         </DashboardContainer>
       </Container>
     </SectionContainer>

@@ -1,4 +1,4 @@
-import { forwardRef, useEffect } from 'react';
+import { forwardRef, useEffect, useRef } from 'react';
 import { Formik, Field } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -21,26 +21,17 @@ import { CustomSelect } from './SelectCategory';
 import DatePicker from 'react-datepicker';
 import { selectCategories } from '../../redux/selectors';
 import 'react-datepicker/dist/react-datepicker.css';
+import {
+  CancelButton,
+  LogoutButton,
+} from 'components/Logout/LogoutForm.styled';
 
 const addSchema = object({
   value: number().positive().required('Amount is required'),
   comment: string()
     .max(30, 'Maximum must be 30 characters')
     .required('Please fill in comment'),
-  category: string()
-    .min(3)
-    .oneOf([
-      'Main expenses',
-      'Products',
-      'Car',
-      'Self care',
-      'Child care',
-      'Household products',
-      'Education',
-      'Leisure',
-      'Other expenses',
-      'Entertainment',
-    ]),
+  category: string().min(3),
 });
 const initialValues = {
   type: 'expense',
@@ -59,7 +50,7 @@ const CustomInput = forwardRef(({ value, onClick }, ref) => (
   </>
 ));
 
-export default function AddTransactionForm() {
+export default function AddTransactionForm({ closeModal }) {
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
 
@@ -69,15 +60,17 @@ export default function AddTransactionForm() {
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(addTransaction(values));
+    console.log(addTransaction(values));
     resetForm();
   };
+  // console.log(categories);
 
-  // const optionCategories = categories.map(category => {
-  //   return {
-  //     value: category,
-  //     label: category,
-  //   };
-  // });
+  const optionCategories = categories.map(category => {
+    return {
+      value: category.id,
+      label: category.name,
+    };
+  });
 
   return (
     <>
@@ -100,9 +93,13 @@ export default function AddTransactionForm() {
             {values.type === 'expense' ? (
               <>
                 <CustomSelect
-                  options={categories}
-                  value={values.category}
-                  onChange={value => setFieldValue('category', value)}
+                  options={optionCategories}
+                  value={optionCategories.find(
+                    option => option.value === values.category
+                  )}
+                  onChange={value => {
+                    setFieldValue('category', value.value);
+                  }}
                   className="Select"
                   name="category"
                 />
@@ -140,7 +137,8 @@ export default function AddTransactionForm() {
               />
               <ErrorMessageStyled name="comment" component="div" />
             </StyledLabel>
-            <AddBtn type="submit">Add</AddBtn>
+            <LogoutButton type="submit">Add</LogoutButton>
+            <CancelButton onClick={closeModal}>Cancel</CancelButton>
           </StyledForm>
         )}
       </Formik>

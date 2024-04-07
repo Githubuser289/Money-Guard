@@ -151,7 +151,6 @@ export const getExchangeData = createAsyncThunk(
       });
       const MY_APP_ID = '7aa87ffdcdef473da08ec8f6f5ed3ec8';
       const res = await currencyAPI.get(`latest.json?app_id=${MY_APP_ID}`);
-      console.log(res.data);
       return res.data;
     } catch (error) {
       alert('Failed getting exchange rates.');

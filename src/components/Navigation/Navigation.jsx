@@ -7,7 +7,6 @@ import { useLocation } from 'react-router-dom';
 function Navigation() {
   const isTabletOrDesktop = useMediaQuery({ query: '(min-width: 768px)' });
   const location = useLocation();
-  console.log('navi ', location.pathname);
   const currentPage = location.pathname;
   // .replace('dashboard', '')
   // .replaceAll('/', '');
