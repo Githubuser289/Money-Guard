@@ -4,7 +4,7 @@ import Select from 'react-select';
 import { ErrorMessage } from 'formik';
 
 export const AddTitle = styled.h2`
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   text-align: center;
   font-weight: 400;
   font-size: 24px;
@@ -12,34 +12,54 @@ export const AddTitle = styled.h2`
   color: #fbfbfb;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 41px;
+    margin-bottom: 40px;
     font-size: 30px;
   }
 `;
 
-export const AddBtn = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 300px;
-  height: 50px;
-  padding: 12px 68px;
-  margin-bottom: 20px;
-  background: linear-gradient(
-    97deg,
-    rgba(255, 199, 39, 1) -16.42%,
-    rgba(158, 64, 186, 1) 97.04%,
-    rgba(112, 0, 255, 1) 150.71%
-  );
-  border: none;
-  border-radius: 20px;
-  line-height: 1.5;
-  font-size: 18px;
-  color: rgba(251, 251, 251, 1);
-  text-transform: uppercase;
-  letter-spacing: 1.8px;
-  cursor: pointer;
-`;
+// export const AddBtn = styled.button`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 300px;
+//   height: 50px;
+//   padding: 12px 68px;
+//   margin-bottom: 20px;
+//   background: linear-gradient(
+//     97deg,
+//     rgba(255, 199, 39, 1) -16.42%,
+//     rgba(158, 64, 186, 1) 97.04%,
+//     rgba(112, 0, 255, 1) 150.71%
+//   );
+//   border: none;
+//   border-radius: 20px;
+//   line-height: 1.5;
+//   font-size: 18px;
+//   color: rgba(251, 251, 251, 1);
+//   text-transform: uppercase;
+//   letter-spacing: 1.8px;
+//   cursor: pointer;
+// `;
+
+// export const CancelBtn = styled.button`
+//   /* display: flex; */
+//   /* align-items: center;
+//   justify-content: center; */
+//   /* width: 300px;
+//   height: 50px; */
+//   /* background: #fbfbfb; */
+//   /* border: none; */
+//   /* border-radius: 20px; */
+//   /* line-height: 1.5; */
+//   /* font-size: 18px; */
+//   /* color: rgba(251, 251, 251, 1); */
+//   /* text-transform: uppercase; */
+//   /* cursor: pointer; */
+
+// /* padding: 12px 68px;
+// margin-bottom: 20px;
+//  letter-spacing: 1.8px; */
+// `;
 
 export const StyledLabel = styled.label`
   margin-bottom: 40px;
@@ -259,6 +279,7 @@ export const StyledComment = styled(Field)`
 `;
 
 export const SwitcherWrapper = styled.label`
+  
   width: 254px;
   height: 44px;
   display: flex;
@@ -268,6 +289,10 @@ export const SwitcherWrapper = styled.label`
   font-size: 16px;
   color: rgba(255, 255, 255, 0.6);
   margin-bottom: 42px;
+  @media screen and (max-width: 768px){
+    margin-bottom:20px;
+  }
+ 
 `;
 
 export const Label = styled.label`
@@ -303,19 +328,20 @@ export const ErrorMessageStyled = styled(ErrorMessage)`
 `;
 
 export const AddFormcontainer = styled.div`
-  border-radius: 2px;
-  padding: 20px;
-  /* background-color: greenyellow; */
-  /* border:1px groove rgba(255, 255, 255, 0.4);/ */
-  /* box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2),
+border-radius: 2px;
+padding:20px;
+/* background-color: greenyellow; */
+/* border:1px groove rgba(255, 255, 255, 0.4);/ */
+/* box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2),
 0px 4px 60px 0px rgba(0, 0, 0, 0.25); */
-`;
+`
 
-export const AddContainer = styled.div`
-  min-width: 100vw;
-  min-height: 100vh;
-  background-color: purple;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+ export const AddContainer  = styled.div`
+ min-width: 100vw;
+ min-height: 100vh;
+ background-color: purple;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+
+ `

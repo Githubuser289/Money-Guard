@@ -42,7 +42,7 @@ export const Container = styled.div`
   justify-content: center;
   min-height: 100vh;
   background: url(${props => (props.isregister ? backRegister : backLogIn)});
-  background-color: #0f0739;
+  /* background-color: #0f0739; */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -64,7 +64,7 @@ export const LogoutMain = styled.div`
   min-height: 100vh;
 `;
 export const ContainerLogout = styled.div`
-  background-color: rgba(0, 0, 0, 0.25);
+  /* background-color: rgba(0, 0, 0, 0.25); */
   display: flex;
   flex-direction: column;
   justify-content: center;

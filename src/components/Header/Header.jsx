@@ -1,15 +1,20 @@
 import { useState } from "react";
 import {useSelector} from "react-redux";
-import { ExitButton, ExitIcon, HeaderContainer, RightSide, UserName } from "./Header.styled";
+import { ExitButton, 
+  ExitIcon, 
+  ExitText, 
+  HeaderContainer, 
+  ImgHeaderStyled, 
+  LogoHeaderContainer, 
+  LogoHeaderText, 
+  RightSide, 
+  UserName } from "./Header.styled";
 import Modal from 'react-modal';
 import { selectUser } from "../../redux/selectors";
 import logo from "../../images/logo_money_guard.svg"
-import { ImgStyled, LogoContainer, LogoText } from "components/RegistrationForm/RegistrationForm.styled";
 import LogoutForm from "components/Logout/LogoutForm";
-import "./Header.css"
-import verticalline from "../../images/Vector 4.svg"
-
-
+import "./Header.css";
+import verticalline from "../../images/Vector 4.svg";
 
 const customStyles = {
   content: {
@@ -37,6 +42,7 @@ const customStyles = {
 const Header =()=>{
     const user = useSelector(selectUser);
     const [modalIsOpen, setIsOpen] = useState(false);
+
   
     function openModal() {
       setIsOpen(true);
@@ -48,42 +54,33 @@ const Header =()=>{
     return (
      <> 
         <HeaderContainer>
-           <LogoContainer>
-          <ImgStyled src={logo} alt='logo' />
-          <LogoText>Money Guard</LogoText>
-          </LogoContainer>
+           <LogoHeaderContainer>
+          <ImgHeaderStyled src={logo} alt='logo' />
+          <LogoHeaderText>Money Guard</LogoHeaderText>
+          </LogoHeaderContainer>
     
             <RightSide>
-
        <UserName>
         {user.username} 
        </UserName>
         
-
         <div>
             <img src = {verticalline} alt ="vertical line"/>
         </div>
         <ExitButton onClick={openModal} >
              <ExitIcon/>
-         <span>Exit</span>
+         <ExitText >Exit</ExitText >
          </ExitButton>
          <Modal
         isOpen={modalIsOpen}
-        // onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
-        // className="ReactModal__Content"
-        // overlayClassName="ReactModal__Overlay"
         contentLabel="Example Modal"
       >
-
-       <LogoutForm/>
-
+       <LogoutForm closeModal={closeModal}/>
       </Modal>
          </RightSide>
         </HeaderContainer>
-
-       
       </> 
     )
     }

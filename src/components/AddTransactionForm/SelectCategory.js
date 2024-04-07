@@ -2,6 +2,7 @@ import { components } from 'react-select';
 import { VscChevronDown, VscChevronUp } from 'react-icons/vsc';
 import { StyledSelect } from './AddTransactionForm.styled';
 
+
 const DropdownIndicator = props => {
   if (props.isFocused) {
     return (

@@ -14,9 +14,15 @@ import {
   LogoContainer,
   LogoText,
 } from 'components/RegistrationForm/RegistrationForm.styled';
+import { useLocation } from 'react-router-dom';
+import { useRef } from "react";
 
-const LogoutForm = () => {
+// Modal.setAppElement('#root');
+
+const LogoutForm = ({ closeModal }) => {
   const dispatch = useDispatch();
+
+
 
   // const handleSubmit = () =>{
   // dispatch(logOut())
@@ -40,7 +46,7 @@ const LogoutForm = () => {
             >
               LOGOUT
             </LogoutButton>
-            <CancelButton>CANCEL</CancelButton>
+            <CancelButton onClick={closeModal}>CANCEL</CancelButton>
           </ButtonsContainer>
         </ContainerLogout>
       </LogoutMain>

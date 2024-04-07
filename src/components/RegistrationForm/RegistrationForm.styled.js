@@ -122,10 +122,9 @@ const CustomButtonBase = styled.button`
   && {
     ${buttonStyles}
     color: white;
-    background: var(
-      --button-gradient,
+    background: 
       linear-gradient(97deg, #ffc727 -16.42%, #9e40ba 97.04%, #7000ff 150.71%)
-    );
+    ;
     box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
 
     &:hover {
