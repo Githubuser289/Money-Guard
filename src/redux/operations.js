@@ -110,9 +110,9 @@ export const updateTransaction = createAsyncThunk(
 
 export const deleteTransaction = createAsyncThunk(
   'transactions/deleteTransaction',
-  async ({ id, transaction }, thunkAPI) => {
+  async (id, thunkAPI) => {
     try {
-      const res = await axios.delete(`/transactions/${id}`, transaction);
+      const res = await axios.delete(`/transactions/${id}`);
       toast.success('Transaction deleted successfully!');
       return res.data;
     } catch (error) {

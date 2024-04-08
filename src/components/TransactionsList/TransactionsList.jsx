@@ -5,6 +5,7 @@ import {
   selectError,
   selectFIltered,
   selectIsLoading,
+  selectTransactions,
 } from '../../redux/selectors';
 import Loader from '../../components/Loader/Loader';
 import {
@@ -45,9 +46,11 @@ const TransactionsList = () => {
   });
   const { open, close, isOpen, data } = useModal();
   const categories = useSelector(selectCategories);
-  const filteredTransactions = useSelector(state =>
-    selectFIltered(state, sortCriteria)
-  );
+  // const filteredTransactions = useSelector(state =>
+  //   selectFIltered(state, sortCriteria)
+  // );
+  const filteredTransactions = useSelector(selectTransactions);
+  console.log('tranzactiile ', filteredTransactions);
   const loading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
