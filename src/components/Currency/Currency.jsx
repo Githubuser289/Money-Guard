@@ -12,12 +12,17 @@ import {
 } from './Currency.styled';
 import { useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
-import { selectExchangeData } from '../../redux/selectors';
+import { selectExchangeData, selectIsFinished } from '../../redux/selectors';
 
 const Currency = () => {
   const exchangeData = useSelector(selectExchangeData);
-  let rateBuyUSD = exchangeData.rates.RON;
-  let rateBuyEUR = rateBuyUSD / exchangeData.rates.EUR;
+  const isFinished = useSelector(selectIsFinished);
+  let rateBuyUSD = 0;
+  let rateBuyEUR = 0;
+  if (isFinished) {
+    rateBuyUSD = exchangeData.rates.RON;
+    rateBuyEUR = rateBuyUSD / exchangeData.rates.EUR;
+  }
   let rateSellUSD = rateBuyUSD * 1.004;
   let rateSellEUR = rateBuyEUR * 1.004;
   rateBuyUSD = rateBuyUSD.toFixed(2);

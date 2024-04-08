@@ -19,6 +19,7 @@ import {
   getAllTransactions,
   getCategories,
   getExchangeData,
+  getInfo,
   getSummary,
 } from '../../redux/operations';
 import HomeTab from '../HomeTab/HomeTab';
@@ -37,6 +38,7 @@ function DashboardPage() {
     .replaceAll('/', '');
 
   useEffect(() => {
+    dispatch(getInfo());
     dispatch(getCategories());
     dispatch(getAllTransactions());
     dispatch(getExchangeData());
