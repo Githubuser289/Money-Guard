@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectCategories,
-  selectError,
   // selectFIltered,
   selectIsLoading,
   selectTransactions,
@@ -54,7 +53,6 @@ const TransactionsList = () => {
   // );
   const filteredTransactions = useSelector(selectTransactions);
   const loading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
 
   const dateRef = useRef(null);
   const amountRef = useRef(null);
