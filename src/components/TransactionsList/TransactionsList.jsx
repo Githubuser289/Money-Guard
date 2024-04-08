@@ -35,7 +35,10 @@ import {
 } from '../../redux/operations';
 import useModal from './useModal';
 import Modal from '../../components/Modal/Modal';
+import { AddFormcontainer } from '../AddTransactionForm/AddTransactionForm.styled';
+
 import EditTransactionForm from '../../components/EditTransactionForm/EditTransactionForm';
+import AddTransactionForm from '../../components/AddTransactionForm/AddTransactionForm';
 
 const TransactionsList = () => {
   const dispatch = useDispatch();
@@ -207,6 +210,9 @@ const TransactionsList = () => {
           <h2>No transactions found, lets create!</h2>
         </StyledNoFound>
       )}
+      <AddFormcontainer>
+        <AddTransactionForm />
+      </AddFormcontainer>
     </>
   );
 };
