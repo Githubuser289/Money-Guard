@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { lazy } from 'react';
+import { lazy,Suspense } from 'react';
 import PrivateRoute from '../routes/PrivateRoute';
 import MediaRoutes from '../routes/MediaRoutes';
 import { SharedLayout } from './SharedLayout/SharedLayout';
@@ -23,27 +23,31 @@ const StatisticsTab = lazy(() =>
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route
-          path="/registration"
-          element={
-            <RestrictedRoute
-              redirectTo="/dashboard"
-              component={<RegistrationPage />}
-            />
-          }
-        />
-
-        <Route
-          index
-          path="/login"
-          element={
-            <RestrictedRoute
-              redirectTo="/dashboard"
-              component={<LoginPage />}
-            />
-          }
-        />
+     <Route path="/" element={<SharedLayout />}> 
+        <Route 
+          path="/registration" 
+          element={ 
+            <Suspense fallback={<div>Loading...</div>}> 
+              <RestrictedRoute 
+                redirectTo="/dashboard" 
+                component={<RegistrationPage />} 
+              /> 
+            </Suspense> 
+          } 
+        /> 
+ 
+        <Route 
+          index 
+          path="/login" 
+          element={ 
+            <Suspense fallback={<div>Loading...</div>}> 
+              <RestrictedRoute 
+                redirectTo="/dashboard" 
+                component={<LoginPage />} 
+              /> 
+            </Suspense> 
+          } 
+        /> 
       </Route>
       <Route
         path="/dashboard"
