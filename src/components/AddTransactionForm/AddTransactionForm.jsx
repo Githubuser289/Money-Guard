@@ -1,8 +1,7 @@
-import { forwardRef, useEffect, useRef } from 'react';
+import { forwardRef, useEffect } from 'react';
 import { Formik, Field } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  AddBtn,
   AddTitle,
   ErrorMessageStyled,
   Label,
