@@ -1,8 +1,13 @@
 import { Chart as ChartJS, registerables } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
-import styles from './Chart.module.css';
 import { selectSummary } from '../../redux/selectors';
+import {
+  ChartContainer,
+  ChartWrapper,
+  ExpenseTotal,
+  StatisticsTitle,
+} from './Chart.styled';
 
 ChartJS.register(...registerables);
 
@@ -64,15 +69,17 @@ export default function Chart() {
   const expenseTotal = summary.expenseSummary || 0;
 
   return (
-    <div>
-      <h2 className={styles.statisticsTitle}>Statistics</h2>
-      <div className={styles.chart}>
-        <Doughnut
-          data={periodSummary.length ? data : noData}
-          options={options}
-        />
-        <div className={styles.expenseTotal}>₴ {expenseTotal.toFixed(2)}</div>
-      </div>
-    </div>
+    <>
+      <ChartContainer>
+        <StatisticsTitle>Statistics</StatisticsTitle>
+        <ChartWrapper>
+          <Doughnut
+            data={periodSummary.length ? data : noData}
+            options={options}
+          />
+          <ExpenseTotal>₴ {expenseTotal.toFixed(2)}</ExpenseTotal>
+        </ChartWrapper>
+      </ChartContainer>
+    </>
   );
 }

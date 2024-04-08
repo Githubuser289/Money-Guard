@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import styles from './StatisticsDashboard.module.css';
 import Select, { components } from 'react-select';
 import { SlArrowDown, SlArrowUp } from 'react-icons/sl';
 import { getSummary } from '../../redux/operations';
+import {
+  DashboardContainer,
+  SelectContainer,
+  SelectWrapper,
+} from './StatisticsDashboard.styled';
 
 const StatisticsDashboard = () => {
   // Initialize current month and year
@@ -41,6 +45,16 @@ const StatisticsDashboard = () => {
     container: styles => ({
       ...styles,
       fontFamily: "'Poppins-Regular', sans-serif",
+      width: '280px',
+      height: '50px',
+      paddingLeft: '16px',
+      paddingRight: '24px',
+      cursor: 'pointer',
+      appearance: 'none',
+      '@media (min-width: 768px)': {
+        width: '190px',
+        padding: '10px',
+      },
     }),
     control: styles => ({
       ...styles,
@@ -134,11 +148,11 @@ const StatisticsDashboard = () => {
   };
 
   return (
-    <div>
-      <div className={styles.selectContainer}>
-        <div className={styles.selectWrapper}>
+    <DashboardContainer>
+      <SelectWrapper>
+        <SelectContainer>
           <Select
-            className={styles.selectInput}
+            styles={selectStyle}
             options={months.map(month => ({
               value: month,
               label: new Date(0, month - 1).toLocaleString('default', {
@@ -147,19 +161,16 @@ const StatisticsDashboard = () => {
             }))}
             value={months.find(month => month.value === selectedMonth)}
             onChange={handleMonthChange}
-            styles={selectStyle}
             components={{ DropdownIndicator }}
             isSearchable={false}
             placeholder={new Date().toLocaleString('default', {
               month: 'long',
             })}
           />
-        </div>
-      </div>
-      <div className={styles.selectContainer}>
-        <div className={styles.selectWrapper}>
+        </SelectContainer>
+
+        <SelectContainer>
           <Select
-            className={styles.selectInput}
             options={years.map(year => ({
               value: year,
               label: year.toString(),
@@ -171,9 +182,9 @@ const StatisticsDashboard = () => {
             isSearchable={false}
             placeholder={currentYear}
           />
-        </div>
-      </div>
-    </div>
+        </SelectContainer>
+      </SelectWrapper>
+    </DashboardContainer>
   );
 };
 

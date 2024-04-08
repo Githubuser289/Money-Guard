@@ -1,6 +1,34 @@
 import styled from 'styled-components';
 import { StyledContainer } from '../../styles/GlobalStyles';
 
+export const StatisticsPageContainer = styled.div`
+  background: linear-gradient(207deg, #341fa0 44.63%, #652392 88.57%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  height: auto;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 20px;
+  }
+`;
+
+export const StatisticCard = styled.div`
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 320px;
+
+  @media (min-width: 768px) {
+    width: auto;
+  }
+`;
+
 export const StyledStatisticDivMain = styled(StyledContainer)`
   color: white;
   display: block;
