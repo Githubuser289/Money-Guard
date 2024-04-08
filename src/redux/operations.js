@@ -13,9 +13,9 @@ const setAuthHeader = token => {
 };
 
 // Utility to remove JWT
-function clearAuthHeader() {
+const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
-}
+};
 
 export const register = createAsyncThunk(
   'auth/register',
