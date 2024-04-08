@@ -82,10 +82,17 @@ export const getInfo = createAsyncThunk('auth/getInfo', async (_, thunkAPI) => {
 //********************* */
 export const addTransaction = createAsyncThunk(
   'transactions/addTransaction',
-  async (transaction, thunkAPI) => {
+  async (body, thunkAPI) => {
+    const data = {
+      transactionDate: body.transactionDate,
+      type: body.type,
+      categoryId: body.categoryId,
+      comment: body.comment,
+      amount: body.amount,
+    };
     try {
-      console.log('add transaction  ', transaction);
-      const res = await axios.post('/transactions', transaction);
+      console.log('add transaction  ', data);
+      const res = await axios.post('/transactions', data);
       return res.data;
     } catch (error) {
       toast.error('Failed adding transaction.');

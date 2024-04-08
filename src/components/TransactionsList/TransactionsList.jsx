@@ -53,7 +53,6 @@ const TransactionsList = () => {
   //   selectFIltered(state, sortCriteria)
   // );
   const filteredTransactions = useSelector(selectTransactions);
-  console.log('tranzactiile ', filteredTransactions);
   const loading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
@@ -104,7 +103,6 @@ const TransactionsList = () => {
   return (
     <>
       {loading && <Loader />}
-      {error && <h1>Something went wrong... 😢</h1>}
       {filteredTransactions.length > 0 ? (
         <StyledTransactionsList>
           <StyledTableWrapper>

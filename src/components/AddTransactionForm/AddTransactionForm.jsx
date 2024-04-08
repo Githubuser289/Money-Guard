@@ -58,11 +58,33 @@ export default function AddTransactionForm({ closeModal }) {
   }, [dispatch]);
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(addTransaction(values));
-    console.log(addTransaction(values));
+    let typpe;
+    let categoryIdd;
+    console.log('values ', values);
+    console.log('values.type=', values.type);
+    if (values.type === 'expense') {
+      typpe = 'EXPENSE';
+    } else {
+      typpe = 'INCOME';
+    }
+    console.log('typpe=', typpe);
+    if (typpe === 'INCOME') {
+      categoryIdd = '063f1132-ba5d-42b4-951d-44011ca46262';
+    } else {
+      categoryIdd = values.category;
+    }
+
+    const transaction = {
+      transactionDate: values.date.toISOString().substring(0, 10),
+      type: typpe,
+      categoryId: categoryIdd,
+      comment: values.comment,
+      amount: values.value,
+    };
+    console.log(transaction);
+    dispatch(addTransaction(transaction));
     resetForm();
   };
-  // console.log(categories);
 
   const optionCategories = categories.map(category => {
     return {
