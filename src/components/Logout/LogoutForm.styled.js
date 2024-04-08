@@ -1,37 +1,35 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const LogoutMain = styled.div`
-display:flex;
-justify-content: center;
-align-items: center;
-flex-wrap: wrap;
-background-color:purple;
-min-width: 100vw;
-min-height: 100vh;
-
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* background-color:purple; */
+  min-width: 100vw;
+  min-height: 100vh;
+`;
 
 export const ContainerLogout = styled.div`
-background-color: rgba(0, 0, 0, 0.25);
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 52px;
-max-width:60vw;
-padding:60px;
-color:rgba(255, 255, 255, 1);
-box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
-`
+  /* background-color: rgba(0, 0, 0, 0.25); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 52px;
+  max-width: 60vw;
+  padding: 60px;
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
+`;
 export const ButtonsContainer = styled.div`
-display:flex;
-flex-direction: column;
-gap: 20px;
-
-`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
 
 export const LogoutButton = styled.button`
-width: 250px;
+  width: 250px;
   height: 50px;
   margin-top: 20px;
   border: none;
@@ -55,11 +53,10 @@ width: 250px;
   &:hover {
     color: #3a2f43;
     box-shadow: 0px 15px 10px -15px rgba(0, 0, 0, 0.2),
-                 1px 9px 15px 0px rgba(0, 0, 0, 0.2),
-                 2px 17px 12px -17px #111,
-                 0px 4px 60px 0px rgba(0, 0, 0, 0.25);  
+      1px 9px 15px 0px rgba(0, 0, 0, 0.2), 2px 17px 12px -17px #111,
+      0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   }
-`
+`;
 export const CancelButton = styled.button`
   width: 250px;
   height: 50px;
@@ -81,8 +78,7 @@ export const CancelButton = styled.button`
   &:hover {
     color: #3a2f43;
     box-shadow: 0px 15px 10px -15px rgba(0, 0, 0, 0.2),
-                 1px 9px 15px 0px rgba(0, 0, 0, 0.2),
-                 2px 17px 12px -17px #111,
-                 0px 4px 60px 0px rgba(0, 0, 0, 0.25);  
+      1px 9px 15px 0px rgba(0, 0, 0, 0.2), 2px 17px 12px -17px #111,
+      0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   }
-`
+`;
