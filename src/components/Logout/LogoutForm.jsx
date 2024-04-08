@@ -15,12 +15,8 @@ import {
   LogoText,
 } from 'components/RegistrationForm/RegistrationForm.styled';
 
-const LogoutForm = () => {
+const LogoutForm = ({ closeModal }) => {
   const dispatch = useDispatch();
-
-  // const handleSubmit = () =>{
-  // dispatch(logOut())
-  // }
 
   return (
     <>
@@ -40,7 +36,7 @@ const LogoutForm = () => {
             >
               LOGOUT
             </LogoutButton>
-            <CancelButton>CANCEL</CancelButton>
+            <CancelButton onClick={closeModal}>CANCEL</CancelButton>
           </ButtonsContainer>
         </ContainerLogout>
       </LogoutMain>
