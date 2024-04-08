@@ -7,7 +7,7 @@ import {
   CancelButton,
   ContainerLogout,
   LogoutButton,
-  LogoutMain,
+  // LogoutMain,
 } from './LogoutForm.styled';
 import {
   ImgStyled,
@@ -20,26 +20,26 @@ const LogoutForm = ({ closeModal }) => {
 
   return (
     <>
-      <LogoutMain>
-        <ContainerLogout>
-          <LogoContainer>
-            <ImgStyled src={logo} alt="logo" />
-            <LogoText>Money Guard</LogoText>
-          </LogoContainer>
-          <span>Are you sure you want to log out?</span>
-          <ButtonsContainer>
-            <LogoutButton
-              type="button"
-              onClick={() => {
-                dispatch(logOut());
-              }}
-            >
-              LOGOUT
-            </LogoutButton>
-            <CancelButton onClick={closeModal}>CANCEL</CancelButton>
-          </ButtonsContainer>
-        </ContainerLogout>
-      </LogoutMain>
+      {/* <LogoutMain> */}
+      <ContainerLogout>
+        <LogoContainer>
+          <ImgStyled src={logo} alt="logo" />
+          <LogoText>Money Guard</LogoText>
+        </LogoContainer>
+        <span>Are you sure you want to log out?</span>
+        <ButtonsContainer>
+          <LogoutButton
+            type="button"
+            onClick={() => {
+              dispatch(logOut());
+            }}
+          >
+            LOGOUT
+          </LogoutButton>
+          <CancelButton onClick={closeModal}>CANCEL</CancelButton>
+        </ButtonsContainer>
+      </ContainerLogout>
+      {/* </LogoutMain> */}
     </>
   );
 };
