@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_team_project=self.webpackChunkreact_team_project||[]).push([[746],{4746:function(e,t,c){c.r(t);c(2791);var r=c(184);t.default=function(){return(0,r.jsx)("div",{children:"HomeTab"})}}}]);
-//# sourceMappingURL=746.e9376908.chunk.js.map
