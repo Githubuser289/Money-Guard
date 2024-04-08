@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://wallet.b.goit.study/api/';
@@ -23,9 +24,19 @@ export const register = createAsyncThunk(
       const res = await axios.post('/auth/sign-up', credentials);
       // After successful registration, add the token to the HTTP header
       setAuthHeader(res.data.token);
+      toast.success(`Welcome, ${res.data.user.email} !`);
       return res.data;
     } catch (error) {
-      alert('Registration failed. Please try again.');
+      switch (error.response.status) {
+        case 400:
+          toast.error(`Validation error: please check your data`);
+          break;
+        case 409:
+          toast.error(`Error: User with such email already exists`);
+          break;
+        default:
+          break;
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -38,9 +49,10 @@ export const logIn = createAsyncThunk(
       const res = await axios.post('/auth/sign-in', credentials);
       // After successful login, add the token to the HTTP header
       setAuthHeader(res.data.token);
+      toast.success(`Hello, ${res.data.user.email} !`);
       return res.data;
     } catch (error) {
-      alert('Login failed. Please try again.');
+      toast.error(`Email or password is not valid`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -76,7 +88,7 @@ export const addTransaction = createAsyncThunk(
       const res = await axios.post('/transactions', transaction);
       return res.data;
     } catch (error) {
-      alert('Failed adding transaction.');
+      toast.error('Failed adding transaction.');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -87,9 +99,10 @@ export const updateTransaction = createAsyncThunk(
   async ({ id, transaction }, thunkAPI) => {
     try {
       const res = await axios.patch(`/transactions/${id}`, transaction);
+      toast.success('Transaction updated!');
       return res.data;
     } catch (error) {
-      alert('Failed updating transaction.');
+      toast.error('Failed updating transaction.');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -100,9 +113,10 @@ export const deleteTransaction = createAsyncThunk(
   async ({ id, transaction }, thunkAPI) => {
     try {
       const res = await axios.delete(`/transactions/${id}`, transaction);
+      toast.success('Transaction deleted successfully!');
       return res.data;
     } catch (error) {
-      alert('Failed deleting transaction.');
+      toast.error(`Error! ${error.message}`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -115,7 +129,7 @@ export const getAllTransactions = createAsyncThunk(
       const res = await axios.get('/transactions');
       return res.data;
     } catch (error) {
-      alert('Failed getting all transactions.');
+      toast.error('Failed getting all transactions.');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -128,7 +142,7 @@ export const getCategories = createAsyncThunk(
       const res = await axios.get('/transaction-categories');
       return res.data;
     } catch (error) {
-      alert('Failed getting transaction categories.');
+      toast.error('Failed getting transaction categories.');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -146,7 +160,7 @@ export const getSummary = createAsyncThunk(
       });
       return res.data;
     } catch (error) {
-      alert('Failed getting transactions summary.');
+      toast.error('Failed getting transactions summary.');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -166,7 +180,7 @@ export const getExchangeData = createAsyncThunk(
       const res = await currencyAPI.get(`latest.json?app_id=${MY_APP_ID}`);
       return res.data;
     } catch (error) {
-      alert('Failed getting exchange rates.');
+      toast.error('Failed getting exchange rates.');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
