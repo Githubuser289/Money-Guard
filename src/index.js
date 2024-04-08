@@ -8,8 +8,11 @@ import { GlobalStyles } from './styles/GlobalStyles';
 import './index.css';
 import { Provider as ReduxProvider } from 'react-redux';
 import { store } from './redux/store.js';
+import Modal from 'react-modal';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+Modal.setAppElement('#root');
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <ThemeProvider theme={theme}>
