@@ -1,15 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectSummary } from '../../redux/selectors';
+import { selectUser } from '../../redux/selectors';
 
 function Balance() {
-  const summary = useSelector(selectSummary);
-  console.log('summary ', summary);
-  const balance = (summary.incomeSummary - summary.expenseSummary).toFixed(2);
+  const user = useSelector(selectUser);
+  const balance = user.balance.toFixed(2);
 
   return (
     <>
-      Your balance
+      <p>Your balance</p>
       <div>
         <span>₴ </span> {balance}
       </div>

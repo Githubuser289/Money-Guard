@@ -14,6 +14,7 @@ const initialState = {
   summary: [],
   exchangeData: null,
   isLoading: true,
+  isFinished: false,
 };
 
 const transactionsSlice = createSlice({
@@ -80,15 +81,15 @@ const transactionsSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(getExchangeData.pending, state => {
-        state.isLoading = true;
+        state.isFinished = false;
       })
       .addCase(getExchangeData.fulfilled, (state, action) => {
         state.exchangeData = action.payload;
-        state.isLoading = false;
+        state.isFinished = true;
       })
       .addCase(getExchangeData.rejected, (state, action) => {
         state.error = action.payload;
-        state.isLoading = false;
+        state.isFinished = true;
       });
   },
 });

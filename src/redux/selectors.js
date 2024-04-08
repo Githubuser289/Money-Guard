@@ -20,6 +20,8 @@ export const selectCategories = state => state.transactions.categories;
 
 export const selectSummary = state => state.transactions.summary;
 
+export const selectIsLoading = state => state.transactions.isLoading;
+
 export const selectExchangeData = state => state.transactions.exchangeData;
 
-export const selectIsLoading = state => state.transactions.isLoading;
+export const selectIsFinished = state => state.transactions.isFinished;
