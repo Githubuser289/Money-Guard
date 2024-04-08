@@ -67,9 +67,6 @@ function DashboardPage() {
             </NavAndBalanceWrapper>
             {isTabletOrDesktop && <CurrencyTab />}
           </LeftContainer>
-          {/* <Suspense fallback={<Loader/>}>
-          <Outlet />
-            </Suspense> */}
           {path === '/dashboard' ? <HomeTab /> : <StatisticsTab />}
         </DashboardContainer>
       </Container>

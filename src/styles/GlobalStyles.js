@@ -1,9 +1,15 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import fontRegular from '../fonts/Poppins-Regular.ttf';
+import fontBold from '../fonts/Poppins-Bold.ttf';
+import fontSemiBold from '../fonts/Poppins-SemiBold.ttf';
 
 export const GlobalStyles = createGlobalStyle`
  
-
-
+ @font-face {
+  font-family: 'Poppins';
+  font-weight: 400 600 700;
+  src: url(${fontRegular}),url(${fontSemiBold}), url(${fontBold}) ;
+}
 body{
 font-family: 'Poppins', sans-serif;
 }
@@ -11,8 +17,7 @@ font-family: 'Poppins', sans-serif;
 h1,
 h2,
 h3,
-h4,npm run build
-
+h4,
 h5,
 h6,
 p {
