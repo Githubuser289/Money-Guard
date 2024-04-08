@@ -7,7 +7,6 @@ export const StyledNavigation = styled.nav`
   gap: 38px;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
 
   @media only screen and (min-width: 768px) {
     height: 134px;

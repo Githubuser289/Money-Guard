@@ -1,6 +1,4 @@
-import { ThemeProvider } from 'styled-components';
-
-const theme = {
+export const theme = {
   colors: {
     mainWhite: '#FBFBFB',
     incomeColor: '#FFB627',
@@ -37,9 +35,3 @@ const theme = {
     backdropFilter: 'blur(50px)',
   },
 };
-
-const Theme = ({ children }) => {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
-};
-
-export default Theme;

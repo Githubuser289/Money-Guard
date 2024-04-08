@@ -6,6 +6,7 @@ import {
   getCategories,
   getSummary,
   getExchangeData,
+  deleteTransaction,
 } from './operations';
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
   transactions: [],
   summary: [],
   exchangeData: null,
+  error: '',
   isLoading: true,
   isFinished: false,
 };
@@ -44,6 +46,21 @@ const transactionsSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(updateTransaction.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLoading = false;
+      })
+
+      .addCase(deleteTransaction.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(deleteTransaction.fulfilled, (state, action) => {
+        const index = state.transactions.findIndex(
+          t => t.id === action.payload
+        );
+        state.transactions.splice(index, 1);
+        state.isLoading = false;
+      })
+      .addCase(deleteTransaction.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
       })
