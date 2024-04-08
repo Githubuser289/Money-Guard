@@ -6,9 +6,9 @@ import { useMediaQuery } from 'react-responsive';
 import { StyledHomeTabContainer } from './HomeTab.styled';
 
 const HomeTab = () => {
-  const isTablet = useMediaQuery({
-    query: '(min-width:768px)',
-  });
+  // const isTablet = useMediaQuery({
+  //   query: '(min-width:768px)',
+  // });
   return (
     <StyledHomeTabContainer>
       {/* {isTablet ? <TransactionsList /> : <MobileList />} */}
