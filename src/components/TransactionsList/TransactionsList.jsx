@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectCategories,
   selectError,
-  selectFIltered,
+  // selectFIltered,
   selectIsLoading,
   selectTransactions,
 } from '../../redux/selectors';
