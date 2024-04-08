@@ -5,11 +5,10 @@ export const DashboardContainer = styled.div`
   width: 100%;
   flex-direction: column;
   @media (min-width: 768px) {
-    margin-left: 31px;
-
-    &.desktop {
-      margin-left: 10px;
-    }
+    margin-right: 20px;
+  }
+  @media (min-width: 1280px) {
+    margin-left: 30px;
   }
 `;
 
@@ -22,6 +21,11 @@ export const SelectContainer = styled.div`
   @media (min-width: 768px) {
     &.tablet {
       flex-direction: row;
+      margin-right: 10px;
+    }
+  }
+  @media (min-width: 1280px) {
+    &.desktop {
     }
   }
 `;

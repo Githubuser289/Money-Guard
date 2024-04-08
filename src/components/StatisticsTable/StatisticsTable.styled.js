@@ -5,12 +5,19 @@ export const StatisticsTableContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  @media (min-width: 768px) {
+    margin-right: 20px;
+  }
+  @media (min-width: 1280px) {
+    margin-right: 0px;
+  }
 `;
 
 export const StatisticsInfo = styled.div`
-  width: 250px;
+  width: 267px;
   height: 56px;
   display: flex;
+  margin-left: 5px;
   align-items: center;
   justify-content: space-evenly;
   gap: 108px;
@@ -24,8 +31,9 @@ export const StatisticsInfo = styled.div`
   margin-top: 5px;
 
   @media (min-width: 768px) {
-    width: 379px;
+    width: 427px;
     gap: 206px;
+    margin-right: 13px;
   }
 `;
 
@@ -34,12 +42,18 @@ export const CategoryContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 18px;
+  width: 100%;
+
   padding-top: 20px;
   padding-bottom: 15px;
   margin-top: 10px;
+
   border-bottom: 2px solid rgba(217, 209, 209, 0.3);
   @media (min-width: 768px) {
     gap: 25px;
+  }
+  @media (min-width: 1280x) {
+    margin-left: 10px;
   }
 `;
 export const DataContainer = styled.div`
@@ -78,12 +92,13 @@ export const Expenses = styled.div`
   color: #fbfbfb;
   display: flex;
   align-items: center;
-  padding: 16px 28px 3px;
-  gap: 135px;
+  padding: 16px 10px 3px;
+  width: 73%;
 
   @media (min-width: 768px) {
     padding-top: 10px;
-    gap: 225px;
+    width: 85%;
+    gap: 125px;
   }
 `;
 
@@ -95,9 +110,11 @@ export const Income = styled.div`
   display: flex;
   align-items: center;
   padding: 16px 28px 3px;
-  gap: 152px;
+
+  width: 73%;
 
   @media (min-width: 768px) {
+    width: 85%;
     gap: 240px;
   }
 `;
@@ -108,7 +125,7 @@ export const CategoryName = styled.div`
   font-size: 14px;
   color: #fbfbfb;
   padding-right: 50px;
-
+  flex: 1;
   @media (min-width: 768px) {
     padding-right: 137px;
   }
@@ -118,9 +135,14 @@ export const CategoryTotal = styled.div`
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 14px;
+  width: 100px;
   text-align: right;
   color: #fbfbfb;
   padding-right: 10px;
+
+  @media (min-width: 768px) {
+    padding-right: 20px;
+  }
 `;
 
 export const NoTransactionsText = styled.div`
@@ -139,6 +161,8 @@ export const ExpensesSum = styled.div`
   font-size: 14px;
   text-align: right;
   color: #ff868d;
+
+  flex: 1;
 `;
 
 export const IncomeSum = styled.div`
@@ -147,6 +171,8 @@ export const IncomeSum = styled.div`
   font-size: 14px;
   text-align: right;
   color: #ffb627;
+
+  flex: 1;
 `;
 
 export const Rectangle = styled.div`

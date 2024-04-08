@@ -48,12 +48,12 @@ const StatisticsDashboard = () => {
       width: '280px',
       height: '50px',
       paddingLeft: '16px',
-      paddingRight: '24px',
       cursor: 'pointer',
       appearance: 'none',
       '@media (min-width: 768px)': {
-        width: '190px',
+        width: '215px',
         padding: '10px',
+        paddingRight: '0px',
       },
     }),
     control: styles => ({
