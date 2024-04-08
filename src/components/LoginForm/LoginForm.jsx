@@ -103,7 +103,6 @@ const LoginForm = () => {
           <CustomButton isNavLink to="/registration">
             REGISTER
           </CustomButton>
-          {/* <ButtonStyled type="button">REGISTER</ButtonStyled> */}
         </FormLoginStyled>
       </FormikLogin>
     </>

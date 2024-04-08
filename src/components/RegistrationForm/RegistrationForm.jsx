@@ -38,9 +38,6 @@ const RegistrationForm = () => {
         username: values.name,
         email: values.email,
         password: values.password,
-        // username: 'iuser188',
-        // email: 'email188@server.com',
-        // password: 'wps99188',
       })
     );
 
@@ -55,13 +52,6 @@ const RegistrationForm = () => {
       resetForm();
       navigate('/dashboard');
     }
-
-    // setTimeout(() => {
-    //     navigate.push('/dashboard');
-    //     setSubmitting(false);
-    // },1000);
-
-    console.log('Form data', values);
   };
 
   const validationSchema = Yup.object({
