@@ -7,7 +7,7 @@ import { selectIsLoading } from '../../redux/selectors';
 const CurrencyTab = () => {
   const isLoading = useSelector(selectIsLoading);
   const isTabletOrDesktop = useMediaQuery({ query: '(min-width: 768px)' });
-
+  // console.log('currencyTab', isTabletOrDesktop);
   return (
     <>
       {isLoading && isTabletOrDesktop && <div>Loading...</div>}

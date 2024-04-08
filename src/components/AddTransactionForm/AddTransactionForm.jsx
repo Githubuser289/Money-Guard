@@ -24,6 +24,7 @@ import {
   CancelButton,
   LogoutButton,
 } from 'components/Logout/LogoutForm.styled';
+import { toast } from 'react-toastify';
 
 const addSchema = object({
   value: number().positive().required('Amount is required'),
@@ -58,33 +59,34 @@ export default function AddTransactionForm({ closeModal }) {
   }, [dispatch]);
 
   const handleSubmit = (values, { resetForm }) => {
-    let typpe;
-    let categoryIdd;
-    console.log('values ', values);
-    console.log('values.type=', values.type);
-    if (values.type === 'expense') {
-      typpe = 'EXPENSE';
-    } else {
-      typpe = 'INCOME';
-    }
-    console.log('typpe=', typpe);
-    if (typpe === 'INCOME') {
-      categoryIdd = '063f1132-ba5d-42b4-951d-44011ca46262';
-    } else {
-      categoryIdd = values.category;
-    }
-
-    const transaction = {
-      transactionDate: values.date.toISOString().substring(0, 10),
-      type: typpe,
-      categoryId: categoryIdd,
+    const addFormData = {
+      amount:
+        values.type === 'EXPENSE'
+          ? Number(-values.value)
+          : Number(values.value),
+      categoryId:
+        values.type === 'EXPENSE'
+          ? values.category
+          : '063f1132-ba5d-42b4-951d-44011ca46262',
       comment: values.comment,
-      amount: values.value,
+      transactionDate: new Date().toISOString(),
+      type: values.type.toUpperCase(),
     };
-    console.log(transaction);
-    dispatch(addTransaction(transaction));
+    dispatch(addTransaction(addFormData))
+      .unwrap()
+      .then(() => {
+        closeModal();
+        toast.success(`Transaction added💸`);
+      })
+      .catch(() => {
+        toast.error(
+          'Something went wrong, enter amount or choose a category!🤷‍♀️'
+        );
+      });
+    console.log(addTransaction(addFormData));
     resetForm();
   };
+  // console.log(categories);
 
   const optionCategories = categories.map(category => {
     return {

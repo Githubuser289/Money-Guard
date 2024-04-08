@@ -32,7 +32,10 @@ function Navigation() {
         {isTabletOrDesktop && <p>Statistics</p>}
       </StyledLink>
       {!isTabletOrDesktop && (
-        <StyledLink to={'currency'} $current={currentPage === 'currency'}>
+        <StyledLink
+          to={'/dashboard/currency'}
+          $current={currentPage === 'currency'}
+        >
           <StyledIcon width={38} height={38}>
             <use href={`${icons}#icon-currency_bcg`} />
           </StyledIcon>
