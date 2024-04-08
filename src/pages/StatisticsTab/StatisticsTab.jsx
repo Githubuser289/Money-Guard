@@ -1,15 +1,17 @@
 import Chart from '../../components/Chart/Chart';
-import styles from './StatisticsTab.module.css';
-import StatisticsDashboard from '../../components/StatisticsDashboard/StatisticsDashboard';
+import StatisticsDashboard from 'components/StatisticsDashboard/StatisticsDashboard';
 import StatisticsTable from '../../components/StatisticsTable/StatisticsTable';
+import { StatisticsPageContainer } from './StatisticsTab.styled';
 
 const StatisticsTab = () => {
   return (
-    <div className={styles.statisticsPageContainer}>
+    <StatisticsPageContainer>
       <Chart />
-      <StatisticsDashboard />
-      <StatisticsTable />
-    </div>
+      <div>
+        <StatisticsDashboard />
+        <StatisticsTable />
+      </div>
+    </StatisticsPageContainer>
   );
 };
 export default StatisticsTab;
