@@ -102,9 +102,16 @@ export const addTransaction = createAsyncThunk(
 
 export const updateTransaction = createAsyncThunk(
   'transactions/updateTransaction',
-  async ({ id, transaction }, thunkAPI) => {
+  async (body, thunkAPI) => {
+    const data = {
+      transactionDate: body.transactionDate,
+      type: body.type,
+      categoryId: body.categoryId,
+      comment: body.comment,
+      amount: body.amount,
+    };
     try {
-      const res = await axios.patch(`/transactions/${id}`, transaction);
+      const res = await axios.patch(`/transactions/${body.id}`, data);
       toast.success('Transaction updated!');
       return res.data;
     } catch (error) {
