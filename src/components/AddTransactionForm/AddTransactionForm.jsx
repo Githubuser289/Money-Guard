@@ -70,7 +70,7 @@ export default function AddTransactionForm({ closeModal }) {
           ? values.category
           : '063f1132-ba5d-42b4-951d-44011ca46262',
       comment: values.comment,
-      transactionDate: new Date().toISOString(),
+      transactionDate: new Date().toISOString().slice(0, 10),
       type: values.type.toUpperCase(),
     };
     dispatch(addTransaction(addFormData))

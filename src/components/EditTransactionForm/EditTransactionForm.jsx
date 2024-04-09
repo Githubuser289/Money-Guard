@@ -47,7 +47,7 @@ const EditTransactionForm = ({ transaction, close }) => {
         values.type === 'EXPENSE'
           ? -Math.abs(values.amount)
           : Math.abs(values.amount),
-      transactionDate: values.transactionDate,
+      transactionDate: values.transactionDate.toISOString().slice(0, 10),
       type: values.type,
       comment: values.comment,
       categoryId: transaction.categoryId,

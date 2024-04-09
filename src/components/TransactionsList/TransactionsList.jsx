@@ -50,6 +50,7 @@ const TransactionsList = () => {
   //   selectFIltered(state, sortCriteria)
   // );
   const filteredTransactions = useSelector(selectTransactions);
+  // console.log('tranzactiile ', filteredTransactions);
   const loading = useSelector(selectIsLoading);
 
   const dateRef = useRef(null);
