@@ -49,6 +49,8 @@ const TransactionsList = () => {
     selectFiltered(state, sortCriteria)
   );
   const loading = useSelector(selectIsLoading);
+  const [flag, setFlag] = useState(false);
+  if (flag) new Date();
 
   const dateRef = useRef(null);
   const amountRef = useRef(null);
@@ -61,6 +63,7 @@ const TransactionsList = () => {
 
   const handleTableBtnDelete = id => {
     dispatch(deleteTransaction(id));
+    setFlag(true);
   };
 
   const handleSort = criteria => {
