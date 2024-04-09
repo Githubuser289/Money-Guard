@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import PrivateRoute from '../routes/PrivateRoute';
 import MediaRoutes from '../routes/MediaRoutes';
 import { SharedLayout } from './SharedLayout/SharedLayout';
@@ -27,10 +27,12 @@ function App() {
         <Route
           path="/registration"
           element={
-            <RestrictedRoute
-              redirectTo="/dashboard"
-              component={<RegistrationPage />}
-            />
+            <Suspense fallback={<div>Loading...</div>}>
+              <RestrictedRoute
+                redirectTo="/dashboard"
+                component={<RegistrationPage />}
+              />
+            </Suspense>
           }
         />
 
@@ -38,10 +40,12 @@ function App() {
           index
           path="/login"
           element={
-            <RestrictedRoute
-              redirectTo="/dashboard"
-              component={<LoginPage />}
-            />
+            <Suspense fallback={<div>Loading...</div>}>
+              <RestrictedRoute
+                redirectTo="/dashboard"
+                component={<LoginPage />}
+              />
+            </Suspense>
           }
         />
       </Route>
