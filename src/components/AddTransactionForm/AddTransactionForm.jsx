@@ -59,10 +59,11 @@ export default function AddTransactionForm({ closeModal }) {
   }, [dispatch]);
 
   const handleSubmit = (values, { resetForm }) => {
+    if (values.type === 'expense') values.type = 'EXPENSE';
     const addFormData = {
       amount:
         values.type === 'EXPENSE'
-          ? Number(-values.value)
+          ? Number(0 - values.value)
           : Number(values.value),
       categoryId:
         values.type === 'EXPENSE'
@@ -83,10 +84,8 @@ export default function AddTransactionForm({ closeModal }) {
           'Something went wrong, enter amount or choose a category!🤷‍♀️'
         );
       });
-    console.log(addTransaction(addFormData));
     resetForm();
   };
-  // console.log(categories);
 
   const optionCategories = categories.map(category => {
     return {

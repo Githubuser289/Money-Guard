@@ -29,16 +29,6 @@ export const formatNumber = number => {
 };
 
 const StatisticsTable = () => {
-  // This text is used only for example
-  // const placeholderText = [
-  //   { name: 'Category 1', total: 10990, color: '#ff0000' },
-  //   { name: 'Category 2', total: 22222200, color: '#40ff00' },
-  //   { name: 'Category 3', total: 300, color: '#8000ff' },
-  //   { name: 'Category 4', total: 100, color: '#ff0000' },
-  //   { name: 'Category 5', total: 200, color: '#40ff00' },
-  //   { name: 'Category 3', total: 300, color: '#8000ff' },
-  // ];
-
   const summary = useSelector(selectSummary);
   const dispatch = useDispatch();
 
@@ -81,19 +71,6 @@ const StatisticsTable = () => {
           ))
         ) : (
           <div>
-            {/* {placeholderText.map((category, index) => (
-              <div key={index}>
-                <DataContainer>
-                  <CategoryContainer>
-                    <Rectangle style={{ backgroundColor: category.color }} />
-                    <CategoryName>{category.name}</CategoryName>
-                    <CategoryTotal>
-                      {formatNumber(category.total)}
-                    </CategoryTotal>
-                  </CategoryContainer>
-                </DataContainer>
-              </div>
-            ))} */}
             <div>
               <NoTransactionsText>
                 You don't have any transactions in this period

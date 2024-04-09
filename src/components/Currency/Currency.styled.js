@@ -62,13 +62,13 @@ export const StyledGraphWrapper = styled.div`
   }
   @media only screen and (min-width: 1280px) {
     &::before {
-      left: 58px;
+      left: 55px;
       top: 29px;
       width: 9px;
       height: 9px;
     }
     &::after {
-      left: 364px;
+      left: 350px;
       top: -4px;
       width: 9px;
       height: 9px;
