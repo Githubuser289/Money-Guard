@@ -91,7 +91,6 @@ export const addTransaction = createAsyncThunk(
       amount: body.amount,
     };
     try {
-      console.log('add transaction  ', data);
       const res = await axios.post('/transactions', data);
       return res.data;
     } catch (error) {

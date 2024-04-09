@@ -32,7 +32,8 @@ export default function Chart() {
         .filter(category => category.type === 'EXPENSE')
         .map(category => ({
           ...category,
-          color: coloredCategoriesMap[category.name] || '#000000',
+          // color: coloredCategoriesMap[category.name] || '#000000',
+          color: coloredCategoriesMap.get(category.name),
         }))
         .sort((a, b) => a.total - b.total)
     : [];
