@@ -2,9 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectCategories,
-  // selectFIltered,
+  selectFiltered,
   selectIsLoading,
-  selectTransactions,
 } from '../../redux/selectors';
 import Loader from '../../components/Loader/Loader';
 import {
@@ -46,11 +45,9 @@ const TransactionsList = () => {
   });
   const { open, close, isOpen, data } = useModal();
   const categories = useSelector(selectCategories);
-  // const filteredTransactions = useSelector(state =>
-  //   selectFIltered(state, sortCriteria)
-  // );
-  const filteredTransactions = useSelector(selectTransactions);
-  // console.log('tranzactiile ', filteredTransactions);
+  const filteredTransactions = useSelector(state =>
+    selectFiltered(state, sortCriteria)
+  );
   const loading = useSelector(selectIsLoading);
 
   const dateRef = useRef(null);
@@ -61,29 +58,6 @@ const TransactionsList = () => {
     dispatch(getAllTransactions());
     dispatch(getCategories());
   }, [dispatch]);
-
-  // useEffect(() => {
-  //   const sortTransactions = () => {
-  //     const criteria = sortCriteria.value;
-  //     console.log('criteria=', criteria);
-  //     let workArray = [...filteredTransactions];
-  //     switch (criteria) {
-  //       case 'category':
-  //         console.log('by category');
-  //         break;
-  //       case 'amount':
-  //         console.log('by sum');
-  //         break;
-  //       default:
-  //         console.log('default-by date');
-  //         break;
-  //     }
-  //     // amount: -50
-  //     // categoryId: "27eb4b75-9a42-4991-a802-4aefe21ac3ce"
-  //     // transactionDate: "2024-03-12"
-  //   };
-  //   sortTransactions();
-  // }, [sortCriteria, filteredTransactions]);
 
   const handleTableBtnDelete = id => {
     dispatch(deleteTransaction(id));

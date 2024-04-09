@@ -28,7 +28,7 @@ export const selectExchangeData = state => state.transactions.exchangeData;
 
 export const selectIsFinished = state => state.transactions.isFinished;
 
-export const selectFIltered = (state, sortCriteria) => {
+export const selectFiltered = (state, sortCriteria) => {
   const transactions = selectTransactions(state);
   const categories = selectCategories(state);
 
