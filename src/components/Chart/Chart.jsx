@@ -43,6 +43,7 @@ export default function Chart() {
         data: periodSummary.map(expense => expense.total),
         backgroundColor: periodSummary.map(expense => expense.color),
         boxShadow: '0px 0px 8px 0px #000 inset',
+        borderWidth: 0,
       },
     ],
   };

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 export const DashboardContainer = styled.div`
   display: flex;
   margin-bottom: 20px;
-  width: 100%;
+  width: 93%;
   flex-direction: column;
   @media (min-width: 768px) {
     margin-right: 20px;
@@ -37,6 +37,6 @@ export const SelectWrapper = styled.div`
 
   @media (min-width: 768px) {
     flex-direction: row;
-    margin-right: 25px;
+    margin-right: 33px;
   }
 `;

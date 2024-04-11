@@ -15,8 +15,10 @@ export const StyledBalanceContainer = styled.div`
   @media only screen and (min-width: 1280px) {
     border-radius: 0;
     padding-left: 40px;
-    width: calc(100% + 16px);
-    margin-left: -16px;
+    border-radius: 0;
+    padding-left: 40px;
+    width: calc(88% + 16px);
+    margin-left: 0px;
   }
 `;
 

@@ -45,7 +45,7 @@ const StatisticsDashboard = () => {
     container: styles => ({
       ...styles,
       fontFamily: "'Poppins-Regular', sans-serif",
-      width: '280px',
+      width: '290px',
       height: '50px',
       paddingLeft: '16px',
       cursor: 'pointer',
