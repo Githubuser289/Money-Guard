@@ -2,19 +2,23 @@ import styled from 'styled-components';
 import { StyledContainer } from '../../styles/GlobalStyles';
 
 export const StatisticsPageContainer = styled.div`
-  background: linear-gradient(207deg, #341fa0 44.63%, #652392 88.57%);
+  background: transparent;
   display: flex;
   justify-content: center;
   flex-direction: column;
   padding: 10px;
   align-items: center;
   height: auto;
-
+  width: 100%;
   @media (min-width: 768px) {
     flex-direction: row;
   }
 `;
-
+export const StatisticsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-right: 59px;
+`;
 export const StatisticCard = styled.div`
   background: #ffffff;
   border-radius: 10px;

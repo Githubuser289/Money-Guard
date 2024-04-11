@@ -14,7 +14,9 @@ export const StatisticsTableContainer = styled.div`
 `;
 
 export const StatisticsInfo = styled.div`
-  width: 267px;
+  width: 94%;
+  margin-right: 8px;
+
   height: 56px;
   display: flex;
   margin-left: 5px;
@@ -44,7 +46,7 @@ export const CategoryContainer = styled.div`
   gap: 18px;
   width: 100%;
 
-  padding-top: 20px;
+  // padding-top: 20px;
   padding-bottom: 15px;
   margin-top: 10px;
 
@@ -66,14 +68,15 @@ export const ListContainer = styled.div`
   overflow: hidden;
   overflow-y: auto;
   max-height: 200px;
-
+  width: 93%;
   /* Scrollbar styling */
   &::-webkit-scrollbar {
-    width: 8px;
+    width: 5px;
   }
 
   &::-webkit-scrollbar-track {
     background: #f1f1f1;
+    border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -82,6 +85,9 @@ export const ListContainer = styled.div`
 
   &::-webkit-scrollbar-thumb:hover {
     background: #555;
+  }
+  @media (min-width: 1280px) {
+    width: 83%;
   }
 `;
 
@@ -93,12 +99,14 @@ export const Expenses = styled.div`
   display: flex;
   align-items: center;
   padding: 16px 10px 3px;
-  width: 73%;
-
+  width: 93%;
+  margin-top: 10px;
   @media (min-width: 768px) {
     padding-top: 10px;
-    width: 85%;
     gap: 125px;
+  }
+  @media (min-width: 1280px) {
+    width: 83%;
   }
 `;
 
@@ -111,11 +119,13 @@ export const Income = styled.div`
   align-items: center;
   padding: 16px 28px 3px;
 
-  width: 73%;
+  width: 93%;
 
   @media (min-width: 768px) {
-    width: 85%;
     gap: 240px;
+  }
+  @media (min-width: 1280px) {
+    width: 83%;
   }
 `;
 
